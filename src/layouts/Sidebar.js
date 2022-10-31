@@ -95,7 +95,7 @@ export default function Sidebar(props) {
                                         className="flex items-center w-full font-medium  ml-5 p-1 px-2 hover:text-indigo-700 focus:text-indigo-700 focus:outline-none">Add</a>
                                 </li>
                                 <li>
-                                    <a href="#"
+                                    <a href="/enquiry/list"
                                         className="flex items-center w-full font-medium  ml-5 p-1 px-2 hover:text-indigo-700 focus:text-indigo-700 focus:outline-none">List</a>
                                 </li>
                                 <li>
