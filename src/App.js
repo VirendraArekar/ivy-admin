@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Link, Routes } from "react-router-dom";
 import Blank from './pages/Blank'
 import ButtonPage from "./pages/ButtonPage";
 import Dashboard from "./pages/Dashboard";
+import CreateEnquiryForm from "./pages/Enquiry/Create";
 import List from "./pages/Enquiry/List";
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
           <Route exact path="/component/button" element={<ButtonPage />} />
           <Route exact path="/" element={<Dashboard />} />
           <Route exact path="/enquiry/list" element={<List />} />
+          <Route exact path="/enquiry/create" element={<CreateEnquiryForm />} />
           {/* <Skeleton/> */}
         </Routes>
       </Router>

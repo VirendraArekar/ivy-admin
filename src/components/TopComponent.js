@@ -8,11 +8,11 @@ function TopComponent({title , current}) {
               <div className='bg-blue-900 p-1.5 rounded-md mr-2'><FiUsers color='white' /></div>
               <h1 className='py-1'>{title}</h1>
           </div>
-          <nav class="rounded-md w-full py-1 px-20">
-              <ol class="list-reset flex">
-                  <li><a href="#" class="text-blue-600 hover:text-blue-700">{title}</a></li>
-                  <li><span class="text-gray-500 mx-2">/</span></li>
-                  <li class="text-gray-500">{current}</li>
+          <nav className="rounded-md w-full py-1 px-20">
+              <ol className="list-reset flex">
+                  <li><a href="#" className="text-blue-600 hover:text-blue-700">{title}</a></li>
+                  <li><span className="text-gray-500 mx-2">/</span></li>
+                  <li className="text-gray-500">{current}</li>
               </ol>
           </nav>
       </div>

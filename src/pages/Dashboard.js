@@ -1,6 +1,7 @@
 import Skeleton from "../layouts/Skeleton";
 import Card from "../components/Card";
 import ChartComponent from "../components/ChartComponent";
+import TopComponent from "../components/TopComponent";
 
 export default function Dashboard(props) {
     const onlineLeads = [
@@ -18,6 +19,7 @@ export default function Dashboard(props) {
     return (
         <Skeleton>
             <div className="p-10">
+                <TopComponent title={'Dashboard'} current='Dashboard'/>
                 <h1 style={{ fontWeight: 600, padding: "25px 0" }}>Online Leads</h1>
                 <div className="flex">
                     {onlineLeads.map((d, i) =>

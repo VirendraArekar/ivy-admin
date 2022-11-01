@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { MdDelete, MdEdit } from 'react-icons/md'
 
 import CircularButton from '../../components/CircularButton'
