@@ -1,13 +1,12 @@
-import React from 'react'
+import React, { useEffect }  from 'react'
 import { MdDelete, MdEdit } from 'react-icons/md'
-
+import axios from 'axios';
 import CircularButton from '../../components/CircularButton'
 import Table from '../../components/Table'
 import TopComponent from '../../components/TopComponent'
 import Skeleton from '../../layouts/Skeleton'
 
 function List() {
-
     const statusColor = (row) => {
         if (row.status === "Completed") {
             return { color: "green" }
@@ -77,10 +76,22 @@ function List() {
         { sno: 10, name: "Abhishek Sharma", email: "abc@gmail.com", mobile: "9856321254", countryInterested: "India", programmeInterested: "MBBS", assignedTo: "Gabbar Singh", status: "Completed" },
         { sno: 11, name: "Abhishek Sharma", email: "abc@gmail.com", mobile: "9856321254", countryInterested: "India", programmeInterested: "MBBS", assignedTo: "Gabbar Singh", status: "Completed" },
     ]
+    const getResponse = async () =>{
+        try {
+            const response = await axios.get("http://localhost:3001/api/v1/enquiry/all")
+            console.log("response --", response.data.data)
+            return response
+        } catch (error) {
+            console.log(error)
+        }
+    }
+    useEffect(()=>{
+        getResponse()
+    },[])
     return (
         <Skeleton>
             <div className='p-10'>
-                <TopComponent title ="Enquiry" current ="List"/>
+                <TopComponent title="Enquiry" component="Enquiry" current ="List"/>
                 <div className='w-auto bg-white mt-10 rounded-lg shadow-2l pb-2'>
                     <div className='p-5 border-b border-#6c6c6c-500  m-b-2 flex justify-between'>
                         <div className='py-3 px-3'><h1 style={{ fontWeight: 700 }}>Enquiries</h1></div>

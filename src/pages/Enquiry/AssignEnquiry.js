@@ -1,16 +1,19 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import CircularButton from '../../components/CircularButton'
 import Input from '../../components/Input'
 import Select from '../../components/Select'
 import TopComponent from '../../components/TopComponent'
 import Skeleton from '../../layouts/Skeleton'
 
-function CreateEnquiryForm() {
+function AssignEnquiryForm() {
     const [firstName, setFirstName] = useState('')
     const [lastName, setLastName] = useState('')
     const [email, setEmail] = useState('')
     const [phone, setPhone] = useState('')
-    const [country, setCountry] = useState('')
+    const [designation, setDesignation] = useState('')
+    const [description, setDescription] = useState('')
+    const [referredBy, setReferredBy] = useState('')
+    const [assignTo, setAssignTo] = useState('')
     const [lead, setLead] = useState('')
     const onSubmit = (e) => {
         e.preventDefault();
@@ -19,30 +22,33 @@ function CreateEnquiryForm() {
             lastName,
             email,
             phone,
-            country,
-            lead
+            lead,
+            designation,
+            description,
+            referredBy,
+            assignTo
         }
-        console.log("values --" , values)
+        console.log("values --", values)
     }
-    const handleClick =() =>{
+    const handleClick = () => {
         console.log("hello")
         setFirstName('')
         setLastName('')
         setEmail('')
         setPhone('')
-        setCountry('')
         setLead('')
+        setDesignation('')
+        setDescription('')
+        setReferredBy('')
+        setAssignTo('')
     }
-    useEffect(()=>{
-        
-    },[])
     return (
         <Skeleton>
             <div className='p-10'>
-                <TopComponent title="Enquiry" component="Enquiry" current="Add Enquiry" />
+                <TopComponent title="Enquiry" component="Enquiry" current="Assign Enquiry" />
                 <div className='w-auto bg-white mt-10 rounded-lg shadow-2l pb-2'>
                     <div className='p-5 border-b border-#6c6c6c-500  m-b-2'>
-                        <h1 style={{ fontWeight: 700 }}>Add Enquiry</h1>
+                        <h1 style={{ fontWeight: 700 }}>Enquiry Assignment</h1>
                     </div>
                     <div className='py-10 px-5'>
                         <div className='py-3 px-3 bg-neutral-200 w-80 rounded-md font-semibold mb-6' >Enquiry Information</div>
@@ -54,7 +60,7 @@ function CreateEnquiryForm() {
                                         id="firstName"
                                         type={"text"}
                                         placeholder="First name"
-                                        value ={firstName}
+                                        value={firstName}
                                         required
                                         onChange={(v) => setFirstName(v)}
                                     />
@@ -91,13 +97,14 @@ function CreateEnquiryForm() {
                                     />
                                 </div>
                             </div>
-                            <div className='mb-10'>
+                            <div className='mb-5'>
                                 <div className='grid grid-cols-2 gap-5'>
-                                    <Select
-                                        label={"Country Interested In"}
+                                    <Input
+                                        id={"designation"}
+                                        label={"Designation"}
                                         required
-                                        value={country}
-                                        onChange={(v) => setCountry(v)}
+                                        value={designation}
+                                        onChange={(v) => setDesignation(v)}
                                     />
                                     <Select
                                         label={"Lead Source"}
@@ -107,15 +114,49 @@ function CreateEnquiryForm() {
                                     />
                                 </div>
                             </div>
+                            <div className='mb-5'>
+                                <div className='w-4/5'>
+                                    <Input
+                                        id={"refferedBy"}
+                                        label={"Referred By"}
+                                        value={referredBy}
+                                        onChange={(v) => setReferredBy(v)}
+                                    />
+                                </div>
+                            </div>
+                            <div className='mb-5'>
+                                <div className='w-4/5'>
+                                    <Select
+                                        label={"Assigned To"}
+                                        value={assignTo}
+                                        onChange={(v) => setAssignTo(v)}
+                                    />
+                                </div>
+                            </div>
+
+                            <div className='mb-10'>
+                                <div>
+                                    <label for="description" className="block text-gray-700 text-sm font-bold mb-2">Description</label>
+                                    <textarea
+                                        id='description'
+                                        className='shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'
+                                        value={description}
+                                        rows={5}
+                                        onChange={(e) => setDescription(e.target.value)}
+                                    >
+                                        Description
+                                    </textarea>
+                                </div>    
+                            </div>
                             <div className='text-center space-x-5 mt-10'>
                                 <button
                                     className={`text-white text-base rounded-3xl py-2 px-10 btn-bg-green `}
                                     type="submit"
                                 >
-                                   Submit
+                                    Submit
                                 </button>
                                 {/* <CircularButton title="Submit" bgColor={'btn-bg-green'} bgColorHover={''} type="submit" /> */}
-                                <CircularButton title="Reset" bgColor={'btn-bg-gray'} bgColorHover={''} onClick ={() => handleClick()}/>
+                                <CircularButton title="Reset" bgColor={'btn-bg-gray'} bgColorHover={''} onClick={() => handleClick()} />
                             </div>
                         </form>
                     </div>
@@ -125,4 +166,4 @@ function CreateEnquiryForm() {
     )
 }
 
-export default CreateEnquiryForm
+export default AssignEnquiryForm
