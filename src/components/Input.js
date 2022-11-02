@@ -1,6 +1,6 @@
 import React from 'react'
 
-function Input({ label, id, placeholder, type, required, errorMessage , value }) {
+function Input({ label, id, placeholder, type, required, errorMessage , value , onChange}) {
     return (
         <div>
             {label && <label className="block text-gray-700 text-sm font-bold mb-2" for={id}>
@@ -12,7 +12,8 @@ function Input({ label, id, placeholder, type, required, errorMessage , value })
                 type={type}
                 required = {required ? true : false}
                 placeholder={placeholder}
-                onChange ={(e) => value(e.target.value)}
+                value = {value}
+                onChange={(e) => onChange(e.target.value)}
             />
             {errorMessage && <p className="text-sm text-red-500 ">{errorMessage}</p>}
             {/* <select className=" appearance-none w-full  border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-state">
