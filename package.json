@@ -1,6 +1,7 @@
 {
   "name": "ivy-admin",
   "version": "0.1.0",
+  "homepage" : "https://myappsdevelopment.in/demos/ivy-admin",
   "private": true,
   "dependencies": {
     "@headlessui/react": "^1.7.3",

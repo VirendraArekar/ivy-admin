@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 export default function Sidebar(props) {
     const {show, setShow, eqNav, setEqNav, dashboardNav, setDashboardNav, settingNav, setSettingNav, sideBar, setSideBar} = props;
 
@@ -44,8 +45,8 @@ export default function Sidebar(props) {
                             dashboardNav &&
                             <ul  className=" my-3 space-y-2 bg-white ml-6">
                                 <li>
-                                    <a href="#"
-                                        className="flex items-center w-full font-medium  ml-5 p-1 px-2 hover:text-indigo-700 focus:text-indigo-700 focus:outline-none">Menu 1</a>
+                                    <Link to="/"
+                                        className="flex items-center w-full font-medium  ml-5 p-1 px-2 hover:text-indigo-700 focus:text-indigo-700 focus:outline-none">Menu 1</Link>
                                 </li>
                                 <li>
                                     <a href="#"
@@ -90,12 +91,13 @@ export default function Sidebar(props) {
                             eqNav &&
                             <ul id="dropdown-example" className=" py-3 space-y-2 pl-7">
                                 <li>
-                                    <a href="/enquiry/create"
-                                        className="flex items-center w-full font-medium  ml-5 p-1 px-2 hover:text-indigo-700 focus:text-indigo-700 focus:outline-none">Add</a>
+                                    <Link to="/enquiry/create"
+                                        className="flex items-center w-full font-medium  ml-5 p-1 px-2 hover:text-indigo-700 focus:text-indigo-700 focus:outline-none">
+                                            Add</Link>
                                 </li>
                                 <li>
-                                    <a href="/enquiry/list"
-                                        className="flex items-center w-full font-medium  ml-5 p-1 px-2 hover:text-indigo-700 focus:text-indigo-700 focus:outline-none">List</a>
+                                    <Link to="/enquiry/list"
+                                        className="flex items-center w-full font-medium  ml-5 p-1 px-2 hover:text-indigo-700 focus:text-indigo-700 focus:outline-none">List</Link>
                                 </li>
                                 <li>
                                     <a href="#"
