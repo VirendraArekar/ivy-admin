@@ -1,7 +1,7 @@
 import React from "react"
 
 export default function Header(props){
-    const {show, setShow, sideBar, setSideBar,profile, setProfile} = props;
+    const {show, setShow, sideBar, setSideBar,profile, setProfile, responsive} = props;
     return(
 
         <nav className="h-16 flex items-center lg:items-stretch justify-end lg:justify-between bg-white shadow relative z-10">
@@ -21,17 +21,22 @@ export default function Header(props){
                         </svg>
                     </div>
                 }
-                
-                <div className="relative w-full">
-                    <input className="border border-gray-300 focus:outline-none focus:border-indigo-700 rounded-3xl w-full text-sm text-gray-500  pl-4 py-2" type="text" placeholder="Search" />
-                    <div className="text-gray-500 absolute mr-4 inset-0 m-auto w-4 h-4 right-0">
-                        <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-search" width={16} height={16} viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">
-                            <path stroke="none" d="M0 0h24v24H0z" />
-                            <circle cx={10} cy={10} r={7} />
-                            <line x1={21} y1={21} x2={15} y2={15} />
-                        </svg>
+
+           
+                {
+                    (!responsive  === false) &&
+                    <div className="relative w-full">
+                        <input className="border border-gray-300 focus:outline-none focus:border-indigo-700 rounded-3xl w-full text-sm text-gray-500  pl-4 py-2" type="text" placeholder="Search" />
+                        <div className="text-gray-500 absolute mr-4 inset-0 m-auto w-4 h-4 right-0">
+                            <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-search" width={16} height={16} viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">
+                                <path stroke="none" d="M0 0h24v24H0z" />
+                                <circle cx={10} cy={10} r={7} />
+                                <line x1={21} y1={21} x2={15} y2={15} />
+                            </svg>
+                        </div>
                     </div>
-                </div>
+                }
+               
             </div>
             <div className="w-1/2 hidden lg:flex">
                 <div className="w-full flex items-center pl-8 justify-end">
@@ -93,16 +98,14 @@ export default function Header(props){
                 </div>
             </div>
         </div>
-        <div className="text-gray-600 mr-8 visible lg:hidden relative" onClick={() => setShow(!show)}>
-            {show ? (
-                " "
-            ) : (
+        <div className="text-gray-600 mr-3 visible lg:hidden relative" onClick={() => setShow(true)}>
+            {!show && 
                 <svg aria-label="Main Menu" aria-haspopup="true" xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-menu cursor-pointer" width={30} height={30} viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">
                     <path stroke="none" d="M0 0h24v24H0z" />
                     <line x1={4} y1={8} x2={20} y2={8} />
                     <line x1={4} y1={16} x2={20} y2={16} />
                 </svg>
-            )}
+            }
         </div>
     </nav>
     )

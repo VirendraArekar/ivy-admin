@@ -7,6 +7,7 @@ import Dashboard from "./pages/Dashboard";
 import CreateEnquiryForm from "./pages/Enquiry/Create";
 import List from "./pages/Enquiry/List";
 
+
 function App() {
   return (
     <div className="App">
