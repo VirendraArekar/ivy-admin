@@ -1,6 +1,6 @@
 import React from 'react'
 
-function Select({ label, required, placeholder, id,value }) {
+function Select({ label, required, placeholder, id,value ,onChange}) {
     return (
         <div>
             {label && <label className="block text-gray-700 text-sm font-bold mb-2" for={id}>
@@ -11,7 +11,8 @@ function Select({ label, required, placeholder, id,value }) {
                     className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" 
                     id={id}
                     placeholder="hello"
-                    onChange={(e) => value(e.target.value)}
+                    value={value}
+                    onChange={(e) => onChange(e.target.value)}
                     >
                     <option defaultValue>Choose a country</option>
                     <option>India</option>
