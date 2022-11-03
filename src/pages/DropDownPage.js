@@ -9,6 +9,7 @@ export default function DropDownPage(props) {
     <Skeleton>
       <div className="container mx-auto py-4  md:w-5/5 w-12/12 px-4">
         <div className="w-full h-full rounded border-dashed border-2 border-gray-300 bg-white">
+        <DatePicker></DatePicker>
           <DropDown
             options={[
               "John Doe",
@@ -28,7 +29,7 @@ export default function DropDownPage(props) {
               "Naveen",
             ]}
           />
-          <DatePicker></DatePicker>
+         
         </div>
       </div>
     </Skeleton>
