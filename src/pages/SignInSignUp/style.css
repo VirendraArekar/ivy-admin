@@ -1,0 +1,19 @@
+body{
+    height: 100vh !important;
+}
+
+.flex_btn{
+    margin: 10px;
+  }
+
+.allbtn{
+    margin-top: 2rem;
+}
+.inputs{
+    border-bottom: 2px solid gray;
+    padding: 20px;
+    border: none !important;
+}
+.inputwidth{
+    width: 100%;
+}
