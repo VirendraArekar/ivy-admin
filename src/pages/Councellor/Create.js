@@ -1,20 +1,23 @@
 import React, { useEffect, useState } from 'react'
 import CircularButton from '../../components/CircularButton'
 import Input from '../../components/Input'
+import Select from '../../components/Select'
 import TopComponent from '../../components/TopComponent'
 import Skeleton from '../../layouts/Skeleton'
 
 function CreateCouncellorForm() {
     const [firstName, setFirstName] = useState('')
     const [lastName, setLastName] = useState('')
-    const [phone, setPhone] = useState('')
+    const [destination, setDestination] = useState('')
+    const [branch, setBranch] = useState('')
     const [email, setEmail] = useState('')
     const onSubmit = (e) => {
         e.preventDefault();
         const values = {
             firstName,
             lastName,
-            phone,
+            destination,
+            branch,
             email
         }
         console.log("values --", values)
@@ -23,7 +26,8 @@ function CreateCouncellorForm() {
         console.log("hello")
         setFirstName('')
         setLastName('')
-        setPhone('')
+        setDestination('')
+        setBranch('')
         setEmail('')
     }
     useEffect(() => {
@@ -32,7 +36,7 @@ function CreateCouncellorForm() {
     return (
         <Skeleton>
             <div className='p-10'>
-                <TopComponent title="Setting" component="Source" current="Create Sources" />
+                <TopComponent title="Setting" component="Councellor" current="Create Councellor" />
                 <div className='w-auto bg-white mt-10 rounded-lg shadow-2l pb-2'>
                     <div className='p-5 border-b border-#6c6c6c-500  m-b-2'>
                         <h1 style={{ fontWeight: 700 }}>Add Councellor</h1>
@@ -63,15 +67,11 @@ function CreateCouncellorForm() {
                             </div>
                             <div className='mb-5'>
                                 <div className='grid grid-cols-2 gap-5'>
-                                    <Input
-                                        id="number"
-                                        label={"Mobile"}
+                                    <Select
+                                        label={"Destination"}
                                         required
-                                        type={"number"}
-                                        placeholder="Mobile Number"
-                                        value={phone}
-                                        onChange={(v) => setPhone(v)}
-
+                                        value={destination}
+                                        onChange={(v) => setDestination(v)}
                                     />
                                     <Input
                                         id="email"
@@ -81,6 +81,16 @@ function CreateCouncellorForm() {
                                         placeholder="Email Id"
                                         value={email}
                                         onChange={(v) => setEmail(v)}
+                                    />
+                                </div>
+                            </div>
+                            <div className='mb-5'>
+                                <div className='grid gap-5'>
+                                    <Select
+                                        label={"Branch"}
+                                        required
+                                        value={branch}
+                                        onChange={(v) => setBranch(v)}
                                     />
                                 </div>
                             </div>
