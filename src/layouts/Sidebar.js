@@ -168,11 +168,11 @@ export default function Sidebar(props) {
                                 <div className="float-left mb-2 mt-5 font-semibold">Country</div>
                                 <ul id="dropdown-example" className="space-y-2">
                                     <li>
-                                        <a href="#"
+                                        <a href="/country/create"
                                             className="flex items-center w-full font-medium  ml-3 p-1 px-2 hover:text-indigo-700 focus:text-indigo-700 focus:outline-none">Add</a>
                                     </li>
                                     <li>
-                                        <a href="#"
+                                        <a href="/country/list"
                                             className="flex items-center w-full font-medium  ml-3 p-1 px-2 hover:text-indigo-700 focus:text-indigo-700 focus:outline-none">List</a>
                                     </li>
                                     
@@ -180,11 +180,11 @@ export default function Sidebar(props) {
                                 <div className="float-left mb-2 mt-5 font-semibold">Qualification</div>
                                 <ul id="dropdown-example" className="space-y-2">
                                     <li>
-                                        <a href="#"
+                                        <a href="/qualification/create"
                                             className="flex items-center w-full font-medium  ml-3 p-1 px-2 hover:text-indigo-700 focus:text-indigo-700 focus:outline-none">Add</a>
                                     </li>
                                     <li>
-                                        <a href="#"
+                                        <a href="/qualification/list"
                                             className="flex items-center w-full font-medium  ml-3 p-1 px-2 hover:text-indigo-700 focus:text-indigo-700 focus:outline-none">List</a>
                                     </li>
                                     
@@ -206,11 +206,11 @@ export default function Sidebar(props) {
                                 <div className="float-left mb-2 mt-5 font-semibold">Branch</div>
                                 <ul id="dropdown-example" className="space-y-2">
                                     <li>
-                                        <a href="#"
+                                        <a href="/branch/create"
                                             className="flex items-center w-full font-medium  ml-3 p-1 px-2 hover:text-indigo-700 focus:text-indigo-700 focus:outline-none">Add</a>
                                     </li>
                                     <li>
-                                        <a href="#"
+                                        <a href="/branch/list"
                                             className="flex items-center w-full font-medium  ml-3 p-1 px-2 hover:text-indigo-700 focus:text-indigo-700 focus:outline-none">List</a>
                                     </li>
                                 </ul>
