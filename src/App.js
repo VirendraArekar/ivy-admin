@@ -11,14 +11,19 @@ import CreateEnquiryForm from "./pages/Enquiry/Create";
 import List from "./pages/Enquiry/List";
 import CreateSourceForm from "./pages/Source/Create";
 import SourceList from "./pages/Source/List";
+import SignupForm from "./pages/SignInSignUp/SignupForm";
+import SignInForm from "./pages/SignInSignUp/SignInForm";
+import DropDownPage from "./pages/DropDownPage";
 
 function App() {
   return (
     <div className="App">
       <Router>
         <Routes>
-          {/* <Route exact path="/" element={<Blank />} /> */}
+          <Route exact path="/signup" element={<SignupForm/>} />
+          <Route exact path="/signin" element={<SignInForm/>} />
           <Route exact path="/component/button" element={<ButtonPage />} />
+          <Route exact path="/component/dropdown" element={<DropDownPage/>} />
           <Route exact path="/" element={<Dashboard />} />
           <Route exact path="/enquiry/list" element={<List />} />
           <Route exact path="/enquiry/create" element={<CreateEnquiryForm />} />
