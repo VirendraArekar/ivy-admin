@@ -7,7 +7,7 @@ export default function SignInForm(props) {
   return (
     <>  
       {" "}
-      <div class="flex flex-wrap" style={{ height: "100vh" }}>
+      <div className="flex flex-wrap h-full">
         <SignUpInLayout></SignUpInLayout>
 
         <div class="flex-auto">
@@ -92,6 +92,7 @@ export default function SignInForm(props) {
                   .
                 </label>
               </div>
+              <div className="flex justify-center allbtn">
               <Button
                 title={"Sign In"}
                 bgColor={'btn-bg-green'} 
@@ -99,13 +100,14 @@ export default function SignInForm(props) {
                 size={'px-28 h-10 w-50'}
                 
               />
+              </div>
              <div className="mt-2">
              <label
                   for="alreadyAcc"
                   className="ml-2 text-sm font-medium text-gray-900 dark:text-gray-400 "
                 >
                   Don't have an account?{" "}
-                  <Link class="text-blue-600 hover:underline dark:text-blue-500" to="/">SignUp</Link>
+                  <Link class="text-blue-600 hover:underline dark:text-blue-500" to="/signup">SignUp</Link>
                   
                 </label>
              </div>

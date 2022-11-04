@@ -14,6 +14,8 @@ import SourceList from "./pages/Source/List";
 import SignupForm from "./pages/SignInSignUp/SignupForm";
 import SignInForm from "./pages/SignInSignUp/SignInForm";
 import DropDownPage from "./pages/DropDownPage";
+import UsersList from "./pages/Users/UsersList";
+import CreateUser from "./pages/Users/CreateUser"
 
 
 function App() {
@@ -33,6 +35,9 @@ function App() {
           <Route exact path="/source/create" element={<CreateSourceForm />} />
           <Route exact path="/councellor/list" element={<CouncellorList />} />
           <Route exact path="/councellor/create" element={<CreateCouncellorForm />} />
+
+          <Route exact path="/users/list" element={<UsersList/>} />
+          <Route exact path="/users/create" element={<CreateUser/>} />
           {/* <Skeleton/> */}
         </Routes>
       </Router>

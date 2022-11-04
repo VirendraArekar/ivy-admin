@@ -110,13 +110,14 @@ export default function SignupForm(props) {
                   .
                 </label>
               </div>
+              <div class="flex items-start mb-6">
               <Button
                 title={"Sign In"}
                 bgColor={'btn-bg-green'} 
                 bgColorHover={''}
-                size={'px-28 h-10'}
-                w-full
+                size={'px-28 h-10 w-100'}
               />
+              </div>
              <div className="mt-2">
              <label
                   for="alreadyAcc"
