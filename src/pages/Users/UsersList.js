@@ -5,6 +5,7 @@ import CircularButton from '../../components/CircularButton'
 import Table from '../../components/Table'
 import { MdDelete, MdEdit } from 'react-icons/md'
 import DropDown from '../../components/DropDown'
+import SearchBar from '../../components/SearchBar'
 
 
 function CouncellorList() {
@@ -18,7 +19,7 @@ function CouncellorList() {
         {
             name: "Name",
             selector: (row) => `${row.firstName} ${row.lastName}`,
-            width: "250px"
+            width: "220px"
         },
         {
             name: "Email",
@@ -31,7 +32,19 @@ function CouncellorList() {
         },
         {
             name: "Roll",
-            selector: (row) => row.roll,
+            cell: (row) =>
+            <>
+                <DropDown
+            options={[
+              "John Doe",
+              "Naveen Din",
+              "John Doe",
+              "Martin Gill",
+              "Naveen Din",
+            ]}
+          />
+            </>,
+             width: "200px"
         },
         {
             name: "Date Added",
@@ -47,14 +60,14 @@ function CouncellorList() {
         },
     ]
     const data = [
-        { sno: 1, firstName: "Abhishek", lastName: "Sharma",company: "Ivy Overseas",roll:"Supper Admin", email: "abhi@abhi.com" ,date:"2-5-2022"},
-        { sno: 2, firstName: "Abhishek", lastName: "Sharma", company: "Ivy Overseas",roll:"Supper Admin", email: "abhi@abhi.com",date:"2-5-2022"},
-        { sno: 3, firstName: "Abhishek", lastName: "Sharma", company: "Ivy Overseas",roll:"Supper Admin", email: "abhi@abhi.com",date:"2-5-2022"},
-        { sno: 4, firstName: "Abhishek", lastName: "Sharma", company: "Ivy Overseas",roll:"Supper Admin", email: "abhi@abhi.com",date:"2-5-2022"},
-        { sno: 5, firstName: "Abhishek", lastName: "Sharma", company: "Ivy Overseas",roll:"Supper Admin", email: "abhi@abhi.com",date:"2-5-2022"},
-        { sno: 6, firstName: "Abhishek", lastName: "Sharma", company: "Ivy Overseas",roll:"Supper Admin", email: "abhi@abhi.com",date:"2-5-2022"},
-        { sno: 7, firstName: "Abhishek", lastName: "Sharma", company: "Ivy Overseas",roll:"Supper Admin", email: "abhi@abhi.com",date:"2-5-2022"},
-        { sno: 8, firstName: "Abhishek", lastName: "Sharma", company: "Ivy Overseas",roll:"Supper Admin", email: "abhi@abhi.com",date:"2-5-2022"},
+        { sno: 1, firstName: "Abhishek", lastName: "Sharma",company: "Ivy Overseas", email: "abhi@abhi.com" ,date:"2-5-2022"},
+        { sno: 2, firstName: "Abhishek", lastName: "Sharma", company: "Ivy Overseas", email: "abhi@abhi.com",date:"2-5-2022"},
+        { sno: 3, firstName: "Abhishek", lastName: "Sharma", company: "Ivy Overseas", email: "abhi@abhi.com",date:"2-5-2022"},
+        { sno: 4, firstName: "Abhishek", lastName: "Sharma", company: "Ivy Overseas", email: "abhi@abhi.com",date:"2-5-2022"},
+        { sno: 5, firstName: "Abhishek", lastName: "Sharma", company: "Ivy Overseas", email: "abhi@abhi.com",date:"2-5-2022"},
+        { sno: 6, firstName: "Abhishek", lastName: "Sharma", company: "Ivy Overseas", email: "abhi@abhi.com",date:"2-5-2022"},
+        { sno: 7, firstName: "Abhishek", lastName: "Sharma", company: "Ivy Overseas", email: "abhi@abhi.com",date:"2-5-2022"},
+        { sno: 8, firstName: "Abhishek", lastName: "Sharma", company: "Ivy Overseas", email: "abhi@abhi.com",date:"2-5-2022"},
     ]
   return (
       <Skeleton>
@@ -67,8 +80,8 @@ function CouncellorList() {
                           <CircularButton title={'Add User'} bgColor={'btn-bg-green'} bgColorHover={''} />
                       </div>
                   </div>
-                  <div>
-
+                  <div className='p-5 border-b border-#6c6c6c-500  m-b-2 flex' style={{    justifyContent:" center"}}>
+                        <SearchBar></SearchBar>
                   </div>
 
                   <Table
