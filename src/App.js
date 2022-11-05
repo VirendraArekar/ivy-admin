@@ -21,6 +21,7 @@ import Leads_Enquiry from "./pages/Dashboard/Leads_Enquiries";
 import Leads_Enquiry_Visa from "./pages/Dashboard/Leads_Enquiries_visa";
 
 
+
 function App() {
   return (
     <div className="App">
@@ -45,7 +46,8 @@ function App() {
           <Route exact path="/dashboard/enquiry" element={<Enquiry/>} />
           <Route exact path="/dashboard/leads_enquiry" element={<Leads_Enquiry/>} />
           <Route exact path="/dashboard/leads_enquiry_visa" element={<Leads_Enquiry_Visa/>} />
-          {/* <Skeleton/> */}
+          {/* <Route exact path="/dashboard/leads_enquiry_visa/er" element={<Leads_Enquiry_Visa/>} /> */}
+          {/* <Skeleton/> */  }
         </Routes>
       </Router>
     </div>

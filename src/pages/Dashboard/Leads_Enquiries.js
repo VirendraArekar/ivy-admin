@@ -34,21 +34,21 @@ export default function Leads_Enquiry(props) {
                     options={['Last 6 Months', 'Last 3 Months', 'Last 9 Months', 'Last Weak', 'This Year', 'This Month', 'Today']}
                     bar='double'
                     dataset1={[234, 150, 81, 38, 251, 194, 50, 26, 150, 180]}
-                   
                     labels={["ALL","AUS","NZ","UK","USA","CA","FR","IRE","DEU","SIN",]}
                 />
                 <ChartComponent
+
                     title="Enquiry Generated - Counsellor Wise"
-                    options={['John Doe', 'Naveen Din', 'John Doe', 'Martin Gill', 'Naveen Din', 'Martin Gill', 'Jessica Williams']}
-                    bar='single'
-                    dataset={ [234,150,81,38,251,194,50,26,92,234,150,180]}
+                    options={['Last 6 Months', 'Last 3 Months', 'Last 9 Months', 'Last Weak', 'This Year', 'This Month', 'Today']}
+                    bar='double'
+                    dataset1={[234, 150, 81, 38, 251, 194, 50, 26, 150, 180,182,68]}
                     labels={["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct","Nov","Dec"]}
                 />
                 <ChartComponent
                     title="Enquiry Generated - Source Wise"
                     options={['Last 6 Months', 'Last 3 Months', 'Last 9 Months', 'Last Weak', 'This Year', 'This Month', 'Today']}
-                    bar='single'
-                    dataset={[234, 150, 81, 38, 251, 194, 50, 26, 150, 180]}
+                    bar='double'
+                    dataset1={[234, 150, 81, 38, 251, 194, 50, 26, 150, 180]}
                     labels={["GOOGLE", "FACEBOOK", "INSTAGRAM", "LINKEDIN", "SIKSHA","SULEKHA", "NEWSPAPER", "SMS", "TELECALLING", "WALK-IN"]}
                 />
             </div>

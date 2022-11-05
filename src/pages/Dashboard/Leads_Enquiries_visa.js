@@ -1,7 +1,7 @@
 
 import Skeleton from "../../layouts/Skeleton";
 import Card from "../../components/Card";
-import ChartComponent from "../../components/ChartComponent";
+import ChartComponent from "../../components/Chart_Component";
 import TopComponent from "../../components/TopComponent";
 
   
@@ -31,25 +31,62 @@ export default function Leads_Enquiry_Visa(props) {
                 
                 <ChartComponent
                     title="Visa Launched -"
+                    allOptions={['Branch Waise', 'Last 3 Months', 'Last 9 Months', 'Last Weak', 'This Year', 'This Month', 'Today']}
+                    options={['Last 6 Months', 'Last 3 Months', 'Last 9 Months', 'Last Weak', 'This Year', 'This Month', 'Today']}
+                    bar='double'
+                    dataset1={[234, 150, 81, 38, 251, 194]}
+                   Atitle="Branch Waise"
+                    labels={['VIZAG', 'HYDERABAD (RO)', 'KPHB (HYD)', 'GUNTUR', 'VIJAYWADA', 'KAKINADA']}
+                />
+
+                <ChartComponent
+                    title="Visa Launched -"
+                    allOptions={['Destination Waise', 'Last 3 Months', 'Last 9 Months', 'Last Weak', 'This Year', 'This Month', 'Today']}
                     options={['Last 6 Months', 'Last 3 Months', 'Last 9 Months', 'Last Weak', 'This Year', 'This Month', 'Today']}
                     bar='double'
                     dataset1={[234, 150, 81, 38, 251, 194, 50, 26, 150, 180]}
-                   
+                    Atitle="Destination Waise"
                     labels={["ALL","AUS","NZ","UK","USA","CA","FR","IRE","DEU","SIN",]}
                 />
                 <ChartComponent
-                    title="Enquiry Generated - Counsellor Wise"
+                    title="Visa Rejected -"
+                    allOptions={['Branch Waise', 'Last 3 Months', 'Last 9 Months', 'Last Weak', 'This Year', 'This Month', 'Today']}
                     options={['John Doe', 'Naveen Din', 'John Doe', 'Martin Gill', 'Naveen Din', 'Martin Gill', 'Jessica Williams']}
                     bar='single'
+                    Atitle="Branch Waise"
                     dataset={ [234,150,81,38,251,194,50,26,92,234,150,180]}
+                    labels={['VIZAG', 'HYDERABAD (RO)', 'KPHB (HYD)', 'GUNTUR', 'VIJAYWADA', 'KAKINADA']}
+                />
+               <ChartComponent
+                    title="Visa Rejected -"
+                    allOptions={['Destination Waise', 'Last 3 Months', 'Last 9 Months', 'Last Weak', 'This Year', 'This Month', 'Today']}
+                    options={['John Doe', 'Naveen Din', 'John Doe', 'Martin Gill', 'Naveen Din', 'Martin Gill', 'Jessica Williams']}
+                    bar='single'
+                    Atitle="Destination Waise"
+                    dataset={ [234,150,81,38,251,194,50,26,92,234,150,180]}
+                    labels={["ALL","AUS","NZ","UK","USA","CA","FR","IRE","DEU","SIN"]}
+                />
+
+                <ChartComponent
+                    title="Total Payments -"
+                    allOptions={['Branch Waise', 'Last 3 Months', 'Last 9 Months', 'Last Weak', 'This Year', 'This Month', 'Today']}
+                    options={['Last 6 Months', 'Last 3 Months', 'Last 9 Months', 'Last Weak', 'This Year', 'This Month', 'Today']}
+                    bar='double'
+                    Atitle="Branch Waise"
+                    dataset1={[234, 150, 81, 38, 251, 194, 50, 26, 150, 180]}
+                    dataset2={[170, 170, 144, 100, 201, 148, 68, 17, 126, 98]}
                     labels={["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct","Nov","Dec"]}
                 />
-                <ChartComponent
-                    title="Enquiry Generated - Source Wise"
+
+<ChartComponent
+                    title="Total Payments -"
+                    allOptions={['Destination Waise', 'Last 3 Months', 'Last 9 Months', 'Last Weak', 'This Year', 'This Month', 'Today']}
                     options={['Last 6 Months', 'Last 3 Months', 'Last 9 Months', 'Last Weak', 'This Year', 'This Month', 'Today']}
-                    bar='single'
-                    dataset={[234, 150, 81, 38, 251, 194, 50, 26, 150, 180]}
-                    labels={["GOOGLE", "FACEBOOK", "INSTAGRAM", "LINKEDIN", "SIKSHA","SULEKHA", "NEWSPAPER", "SMS", "TELECALLING", "WALK-IN"]}
+                    bar='double'
+                    Atitle="Destination Waise"
+                    dataset1={[234, 150, 81, 38, 251, 194, 50, 26, 150, 180]}
+                    dataset2={[170, 170, 144, 100, 201, 148, 68, 17, 126, 98]}
+                    labels={["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct","Nov","Dec"]}
                 />
             </div>
         </Skeleton>

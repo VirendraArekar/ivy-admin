@@ -34,7 +34,7 @@ function CreateUserForm() {
     setEmail("");
     setCompany("");
     setDate("");
-    setProfile("");
+    setPhone("");
     setProfile("");
   };
   useEffect(() => {}, []);
@@ -45,40 +45,69 @@ function CreateUserForm() {
     {
         name: "Module Permissions",
         selector: (row) => `${row.firstName} ${row.lastName}`,
-        width: "220px"
+        width: "220px",
+        
     },
     {
         name: "Enquiry Assign",
-        selector: (row) => row.email,
-        width: "180px"
-    },
+        // selector: (row) => row.email,
+        width: "180px",
+        cell: (row) =>
+                <>
+                   <input type={"checkbox"}></input>
+                </>
+        ,
+        display:'flex',
+        justifyContent:' center'
+},
     {
         name: "Dashboard Access",
-        selector: (row) => row.company,
+        cell: (row) =>
+                <>
+                   <input type={"checkbox"}></input>
+                </>
+        ,
+        width: "150px",
     },
    
     {
         name: "create/Add",
-        selector: (row) => row.date
+        cell: (row) =>
+                <>
+                   <input type={"checkbox"}></input>
+                </>
+        ,
+        width: "150px",
     },
     {
         name: "Delete",
-        selector: (row) => row.date
+        cell: (row) =>
+                <>
+                   <input type={"checkbox"}></input>
+                </>
+        ,
+        width: "150px",
     },
     {
         name: "Read",
-        selector: (row) => row.date
+        cell: (row) =>
+                <>
+                   <input type={"checkbox"}></input>
+                </>
+
+          ,
+          width: "150px",
     },
 ]
 const data = [
-    { sno: 1, firstName: "Abhishek", lastName: "Sharma",company: "Ivy Overseas", email: "abhi@abhi.com" ,date:"2-5-2022"},
-    { sno: 2, firstName: "Abhishek", lastName: "Sharma", company: "Ivy Overseas", email: "abhi@abhi.com",date:"2-5-2022"},
-    { sno: 3, firstName: "Abhishek", lastName: "Sharma", company: "Ivy Overseas", email: "abhi@abhi.com",date:"2-5-2022"},
-    { sno: 4, firstName: "Abhishek", lastName: "Sharma", company: "Ivy Overseas", email: "abhi@abhi.com",date:"2-5-2022"},
-    { sno: 5, firstName: "Abhishek", lastName: "Sharma", company: "Ivy Overseas", email: "abhi@abhi.com",date:"2-5-2022"},
-    { sno: 6, firstName: "Abhishek", lastName: "Sharma", company: "Ivy Overseas", email: "abhi@abhi.com",date:"2-5-2022"},
-    { sno: 7, firstName: "Abhishek", lastName: "Sharma", company: "Ivy Overseas", email: "abhi@abhi.com",date:"2-5-2022"},
-    { sno: 8, firstName: "Abhishek", lastName: "Sharma", company: "Ivy Overseas", email: "abhi@abhi.com",date:"2-5-2022"},
+    { sno: 1, firstName: "Abhishek", lastName: "Sharma"},
+    { sno: 2, firstName: "Abhishek", lastName: "Sharma"},
+    { sno: 3, firstName: "Abhishek", lastName: "Sharma"},
+    { sno: 4, firstName: "Abhishek", lastName: "Sharma"},
+    { sno: 5, firstName: "Abhishek", lastName: "Sharma"},
+    { sno: 6, firstName: "Abhishek", lastName: "Sharma"},
+    { sno: 7, firstName: "Abhishek", lastName: "Sharma"},
+    { sno: 8, firstName: "Abhishek", lastName: "Sharma"},
 ]
   return (
     <Skeleton>

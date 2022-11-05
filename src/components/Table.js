@@ -6,13 +6,17 @@ function Table({ columns, data }) {
         rows: {
             style: {
                 fontWeight: '500',
+               
+                
             }
         },
         headCells: {
             style: {
                 fontWeight: "600",
+               
             },
         },
+        
     };
     return (
         <div>

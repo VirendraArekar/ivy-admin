@@ -11,12 +11,13 @@ function classNames(...classes) {
 }
 
 export default function ChartComponent(props) {
-    const { title, options,bar, dataset, dataset1, dataset2, labels} = props
+    const { title, options, allOptions, Atitle, bar, dataset, dataset1, dataset2, labels} = props
     return (
         <div className='w-auto bg-white mt-10 rounded-lg shadow-2l pb-2'>
-            <div className='flex p-5 border-b border-#6c6c6c-500  m-b-2'>
-                <h1 style={{ fontWeight: 700 }}>{title}</h1>
-                <p className="ml-5" style={{ fontSize: "14px", color: "#6c6c6c"  }}>Per Month</p>
+            <div className='flex p-5 border-b border-#6c6c6c-500  m-b-2 items-center'>
+                <h1 style={{ fontWeight: 700 ,textAlign:"center"}}>{title}</h1>
+                
+                <OptionComponent Options={allOptions} Atitle={Atitle}></OptionComponent>
             </div>
             <div className='inline-flex justify-end w-full p-5'>
                 <Menu as="div" className="relative inline-block text-left ">
