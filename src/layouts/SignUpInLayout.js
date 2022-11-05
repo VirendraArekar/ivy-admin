@@ -22,7 +22,7 @@ export default function Signup(props) {
               <img
                 alt=""
                 src={require("../assets/images/ellipse.png")}
-                style={{ width: "25rem", margin: "auto", position: "relative" }}
+                style={{width:' 23rem',margin:' auto',bottom: '2rem', position: "relative" }}
               />
             </div>
             <div>

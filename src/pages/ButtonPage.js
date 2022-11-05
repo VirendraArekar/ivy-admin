@@ -3,6 +3,7 @@ import Button from "../components/Button";
 import CircularButton from "../components/CircularButton";
 import Skeleton from "../layouts/Skeleton";
 
+
 export default function ButtonPage(props){
     return(
         <Skeleton>
@@ -50,6 +51,8 @@ export default function ButtonPage(props){
                       <BorderButton title={'Destination'} bgColor={'btn-bg-green'} bgColorHover={''}/>
 
                       <BorderButton title={'Branch'} bgColor={'bg-btn-green'} bgColorHover={''} color={'text-gray-800'}/>
+
+                      
                       
                    </div>
                 </div>
