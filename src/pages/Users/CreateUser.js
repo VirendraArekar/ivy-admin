@@ -8,6 +8,11 @@ import { MdDelete, MdEdit } from 'react-icons/md';
 import DropDown from '../../components/DropDown';
 import SearchBar from '../../components/SearchBar';
 
+
+
+
+
+
 function CreateUserForm() {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
@@ -40,7 +45,7 @@ function CreateUserForm() {
   useEffect(() => {}, []);
 
 
-  const columns = [
+  const columns1 = [
     
     {
         name: "Module Permissions",
@@ -99,7 +104,7 @@ function CreateUserForm() {
           width: "150px",
     },
 ]
-const data = [
+const data1 = [
     { sno: 1, firstName: "Abhishek", lastName: "Sharma"},
     { sno: 2, firstName: "Abhishek", lastName: "Sharma"},
     { sno: 3, firstName: "Abhishek", lastName: "Sharma"},
@@ -109,8 +114,12 @@ const data = [
     { sno: 7, firstName: "Abhishek", lastName: "Sharma"},
     { sno: 8, firstName: "Abhishek", lastName: "Sharma"},
 ]
+
+
   return (
     <Skeleton>
+
+     
       <div className="p-10">
         <TopComponent title="Users" component="Users" current="Create Users" />
         <div className="w-auto bg-white mt-10 rounded-lg shadow-2l pb-2">
@@ -223,8 +232,8 @@ const data = [
               
               <div className="text-center space-x-5 mt-10">
               <Table
-                      columns={columns}
-                      data={data}
+                      columns={columns1}
+                      data={data1}
 
                   />
               </div>
@@ -248,6 +257,8 @@ const data = [
           </div>
         </div>
       </div>
+
+     
     </Skeleton>
   );
 }

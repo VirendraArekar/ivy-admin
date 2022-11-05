@@ -34,7 +34,7 @@ export default function Skeleton(props) {
             <div className="w-full h-full bg-gray-200">
                 <div className="flex flex-no-wrap">
                     <Sidebar eqNav={eqNav} setEqNav={(val) => setEqNav(val)} dashboardNav={dashboardNav} setDashboardNav={(val) => setDashboardNav(val)} settingNav={settingNav} setSettingNav={(val) => setSettingNav(val)} sideBar={sideBar} setSideBar={(val) => setSideBar(val)} setShow={(val) => setShow(val)} show={show}/>
-                    <div className="w-full">
+                    <div className="w-full z-0">
                         
                         <Header show={show} setShow={(val) => setShow(val)} sideBar={sideBar} setSideBar={(val) => setSideBar(val)} profile={profile} setProfile={(val) => setProfile(val)} responsive={responsive}/>
                     

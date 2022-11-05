@@ -6,32 +6,16 @@ import Table from '../../components/Table'
 import { MdDelete, MdEdit } from 'react-icons/md'
 import SearchBar from '../../components/SearchBar'
 import MultiSelect from '../../components/MultiSelect_U'
-// import 'react-responsive-modal/styles.css';
-// import { Modal } from 'react-responsive-modal';
+import 'react-responsive-modal/styles.css';
+import { Modal } from 'react-responsive-modal';
 import Input from "../../components/Input";
-import Modal from 'react-modal';
-import autoprefixer from 'autoprefixer'
 
-const customStyles = {
-    content: {
-      top: '50%',
-      left: '50%',
-      right: 'auto',
-      bottom: 'auto',
-      marginRight: '-50%',
-      transform: 'translate(-50%, -50%)',
-      zIndex:"12389",
-      position:"fixed",
-      width: '88%',
-      height: '82%',
-    },
-  };
+
 
 
 function UserList() {
 
-  
-    const [modalIsOpen, setIsOpen] = React.useState(false);
+    const [open, setOpen] = useState(false);
     const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [company, setCompany] = useState("");
@@ -48,8 +32,7 @@ function UserList() {
       phone,
       email,
     };
-
- 
+    console.log("values --", values);
   };
   const handleClick = () => {
     console.log("hello");
@@ -64,7 +47,8 @@ function UserList() {
   };
   useEffect(() => {}, []);
 
-   
+    const onOpenModal = () => setOpen(true);
+    const onCloseModal = () => setOpen(false);
     const columns = [
         {
             name: "S.no.",
@@ -131,13 +115,13 @@ function UserList() {
         {
             name: "Module Permissions",
             selector: (row) => `${row.firstName} ${row.lastName}`,
-            width: "200px",
+            width: "220px",
             
         },
         {
             name: "Enquiry Assign",
             // selector: (row) => row.email,
-            width: "150px",
+            width: "180px",
             cell: (row) =>
                     <>
                        <input type={"checkbox"}></input>
@@ -153,7 +137,7 @@ function UserList() {
                        <input type={"checkbox"}></input>
                     </>
             ,
-            width: "120px",
+            width: "150px",
         },
        
         {
@@ -163,7 +147,7 @@ function UserList() {
                        <input type={"checkbox"}></input>
                     </>
             ,
-            width: "120px",
+            width: "150px",
         },
         {
             name: "Delete",
@@ -172,7 +156,7 @@ function UserList() {
                        <input type={"checkbox"}></input>
                     </>
             ,
-            width: "120px",
+            width: "150px",
         },
         {
             name: "Read",
@@ -182,7 +166,7 @@ function UserList() {
                     </>
     
               ,
-              width: "120px",
+              width: "150px",
         },
     ]
     const data_add = [
@@ -197,44 +181,14 @@ function UserList() {
     ]
 
 
-    let subtitle;
-    
-  
-    function openModal() {
-      setIsOpen(true);
-    }
-  
-    function afterOpenModal() {
-      // references are now sync'd and can be accessed.
-      subtitle.style.color = '#f00';
-    }
-  
-    function closeModal() {
-      setIsOpen(false);
-    }
-  
-
-
-
-
   return (
 
     
       <Skeleton>
-
-<div>
-      <Modal
-        isOpen={modalIsOpen}
-        onAfterOpen={afterOpenModal}
-        onRequestClose={closeModal}
-        style={customStyles}
-        contentLabel="Example Modal"
-      >
-        <button onClick={closeModal} style={{position: 'absolute',right: '3rem',
-    fontWeight:'900'}}>X</button>
-        <div className="p-10">
-        
-        <div className="w-auto bg-white mt-0 rounded-lg shadow-2l pb-2">
+         <Modal open={open} onClose={onCloseModal}>
+         <div className="p-10">
+        <TopComponent title="Users" component="Users" current="Create Users" />
+        <div className="w-auto bg-white mt-10 rounded-lg shadow-2l pb-2">
          
           <div className="py-10 px-5">
             <form action="#" onSubmit={(event) => onSubmit(event)}>
@@ -351,7 +305,7 @@ function UserList() {
                 >
                   Submit
                 </button>
-               
+                {/* <CircularButton title="Submit" bgColor={'btn-bg-green'} bgColorHover={''} type="submit" /> */}
                 <CircularButton
                   title="Reset"
                   bgColor={"btn-bg-gray"}
@@ -364,15 +318,14 @@ function UserList() {
           </div>
         </div>
       </div>
+
       </Modal>
-    </div>
-        
-          <div className='p-8'>
+          <div className='p-10'>
               <TopComponent title="User" component="Users" current="List" />
               <div className='w-auto bg-white mt-10 rounded-lg shadow-2l pb-2'>
                   <div className='p-5 border-b border-#6c6c6c-500  m-b-2 flex justify-between'>
                       <div className='px-8 py-3'>
-                          <CircularButton onClick={openModal} title={'Add User'} bgColor={'btn-bg-green'} bgColorHover={''} />
+                          <CircularButton  onClick={onOpenModal} title={'Add User'} bgColor={'btn-bg-green'} bgColorHover={''} />
                       </div>
                   </div>
                   <div className='p-5 border-b border-#6c6c6c-500  m-b-2 flex' style={{    justifyContent:" center"}}>
@@ -382,7 +335,6 @@ function UserList() {
                   <Table
                       columns={columns}
                       data={data}
-
                   />
               </div>
           </div>
