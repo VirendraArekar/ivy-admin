@@ -7,15 +7,24 @@ import Skeleton from '../../layouts/Skeleton'
 
 function CreateBranchForm() {
     const [name, setName] = useState('')
+    const [date, setDate] = useState('')
+    const [place, setPlace] = useState('')
+    const [addedBy, setAddedBy] = useState('')
     const onSubmit = (e) => {
         e.preventDefault();
         const values = {
             name,
+            date,
+            place,
+            addedBy
         }
         console.log("values --", values)
     }
     const handleClick = () => {
         setName('')
+        setDate('')
+        setPlace('')
+        setAddedBy('')
     }
     useEffect(() => {
 
@@ -42,6 +51,38 @@ function CreateBranchForm() {
                                         value={name}
                                         onChange={(v) => setName(v)}
 
+                                    />
+                                </div>
+                            </div>
+                            <div className='mb-5'>
+                                <div className='grid  gap-5'>
+                                    <Input
+                                        id="addedBy"
+                                        label={"Added By"}
+                                        type={"text"}
+                                        placeholder="Added By"
+                                        value={addedBy}
+                                        onChange={(v) => setAddedBy(v)}
+                                    />
+                                </div>
+                            </div>
+                            <div className='mb-5'>
+                                <div className='grid md:grid-cols-2 gap-5'>
+                                    <Input
+                                        id="date"
+                                        label={"Date Added (Optional)"}
+                                        type={"date"}
+                                        placeholder="select Date"
+                                        value={date}
+                                        onChange={(v) => setDate(v)}
+                                    />
+                                    <Input
+                                        id="place"
+                                        label={"Branch State/Country (Optional)"}
+                                        type={"text"}
+                                        placeholder="Branch State or Country"
+                                        value={place}
+                                        onChange={(v) => setPlace(v)}
                                     />
                                 </div>
                             </div>

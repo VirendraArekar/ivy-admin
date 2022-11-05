@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useState} from 'react'
 import Skeleton from '../../layouts/Skeleton'
 import TopComponent from '../../components/TopComponent'
 import CircularButton from '../../components/CircularButton'
@@ -6,9 +6,15 @@ import Table from '../../components/Table'
 import { MdDelete, MdEdit } from 'react-icons/md'
 import { BsFillEyeFill } from 'react-icons/bs'
 import { useNavigate } from 'react-router-dom'
+import { FiSettings } from 'react-icons/fi'
+import AddSource from './AddSourceModal'
 
 function SourceList() {
     const navigate = useNavigate()
+    const [openModal, setOpenModal] = useState({ action: false })
+    const handleOnClose = () => {
+        setOpenModal({ action: false })
+    }
     const columns = [
         {
             name: "S.no.",
@@ -63,12 +69,12 @@ function SourceList() {
   return (
       <Skeleton>
           <div className='p-10'>
-              <TopComponent title="Setting" component="Source" current="List" />
+              <TopComponent title="Setting" component="Source" current="List" icon=<FiSettings color='white' /> />
               <div className='w-auto bg-white mt-10 rounded-lg shadow-2l pb-2'>
                   <div className='p-5 border-b border-#6c6c6c-500  m-b-2 flex justify-between'>
                       <div className='py-3 px-3'><h1 style={{ fontWeight: 700 }}>Enquiries</h1></div>
                       <div className='px-8 py-3'>
-                          <CircularButton title={'New Source'} bgColor={'btn-bg-green'} bgColorHover={''} onClick ={()=> navigate("/source/create")}/>
+                          <CircularButton title={'New Source'} bgColor={'btn-bg-green'} bgColorHover={''} onClick ={()=> setOpenModal({action:true})}/>
                       </div>
                   </div>
 
@@ -79,6 +85,7 @@ function SourceList() {
                   />
               </div>
           </div>
+          {openModal.action && <AddSource open={openModal} onClose={handleOnClose} title={'Add Source'}/>}
       </Skeleton>
   )
 }

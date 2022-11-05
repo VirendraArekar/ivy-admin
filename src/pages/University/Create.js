@@ -2,24 +2,28 @@ import React, { useEffect, useState } from 'react'
 import { FiSettings } from 'react-icons/fi'
 import CircularButton from '../../components/CircularButton'
 import Input from '../../components/Input'
+import MultiSelect from '../../components/MultiSelect'
 import Select from '../../components/Select'
 import TopComponent from '../../components/TopComponent'
 import Skeleton from '../../layouts/Skeleton'
 
-function CreateCountryForm() {
+function CreateUniversityForm() {
     const [name, setName] = useState('')
-    const [date, setDate] = useState('')
     const [place, setPlace] = useState('')
+    const [date, setDate] = useState('')
     const [addedBy, setAddedBy] = useState('')
     const onSubmit = (e) => {
         e.preventDefault();
         const values = {
             name,
+            place
         }
         console.log("values --", values)
     }
+    
     const handleClick = () => {
         setName('')
+        setPlace('')
     }
     useEffect(() => {
 
@@ -27,33 +31,33 @@ function CreateCountryForm() {
     return (
         <Skeleton>
             <div className='p-10'>
-                <TopComponent title="Setting" component="Country" current="Create Country" icon=<FiSettings color='white' /> />
+                <TopComponent title="Setting" component="University" current="Create University" icon=<FiSettings color='white' /> />
                 <div className='w-auto bg-white mt-10 rounded-lg shadow-2l pb-2'>
                     <div className='p-5 border-b border-#6c6c6c-500  m-b-2'>
-                        <h1 style={{ fontWeight: 700 }}>Add Country</h1>
+                        <h1 style={{ fontWeight: 700 }}>Add University</h1>
                     </div>
                     <div className='py-10 px-5'>
                         <div className='py-3 px-3 bg-neutral-200 w-80 rounded-md font-semibold mb-6' >Main Information</div>
                         <form action='#' onSubmit={(event) => onSubmit(event)}>
                             <div className='mb-5'>
-                                <div className='grid  gap-5'>
+                                <div className='grid grid-col-2 gap-5'>
                                     <Input
-                                        id="name"
-                                        label={"Country Name"}
+                                        id="university"
+                                        label={"University"}
                                         required
                                         type={"text"}
-                                        placeholder="Country name"
+                                        placeholder="University name"
                                         value={name}
                                         onChange={(v) => setName(v)}
-
                                     />
                                 </div>
                             </div>
                             <div className='mb-5'>
-                                <div className='grid md:grid-cols-2 gap-5'>
+                                <div className='grid grid-cols-2 gap-5'>
                                     <Input
-                                        id="place"
-                                        label={"Region or Continent (Optional)"}
+                                        id="university"
+                                        label={"Country / State / City"}
+                                        required
                                         type={"text"}
                                         placeholder="eg. Europe"
                                         value={place}
@@ -99,4 +103,4 @@ function CreateCountryForm() {
     )
 }
 
-export default CreateCountryForm
+export default CreateUniversityForm

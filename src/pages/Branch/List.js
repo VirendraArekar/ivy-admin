@@ -1,13 +1,19 @@
-import React from 'react'
+import React,{useState} from 'react'
 import Skeleton from '../../layouts/Skeleton'
 import TopComponent from '../../components/TopComponent'
 import CircularButton from '../../components/CircularButton'
 import Table from '../../components/Table'
 import { useNavigate } from 'react-router-dom'
 import { MdDelete, MdEdit } from 'react-icons/md'
+import AddBranch from './AddBranchModal'
+import { FiSettings } from 'react-icons/fi'
 
 function BranchList() {
     const navigate = useNavigate()
+    const [openModal, setOpenModal] = useState({action: false})
+    const handleOnClose = () => {
+        setOpenModal({ action: false })
+    }
     const columns = [
         {
             name: "S.no.",
@@ -60,12 +66,12 @@ function BranchList() {
   return (
       <Skeleton>
           <div className='p-10'>
-              <TopComponent title="Setting" component="Branch" current="List" />
+              <TopComponent title="Setting" component="Branch" current="List" icon=<FiSettings color='white' /> />
               <div className='w-auto bg-white mt-10 rounded-lg shadow-2l pb-2'>
                   <div className='p-5 border-b border-#6c6c6c-500  m-b-2 flex justify-between'>
                       <div className='py-3 px-3'><h1 style={{ fontWeight: 700 }}>Branch</h1></div>
                       <div className='px-8 py-3'>
-                          <CircularButton title={'New Branch'} bgColor={'btn-bg-green'} bgColorHover={''} onClick={ ()=> navigate("/branch/create")} />
+                          <CircularButton title={'New Branch'} bgColor={'btn-bg-green'} bgColorHover={''} onClick={ ()=> setOpenModal({action:true})} />
                       </div>
                   </div>
 
@@ -75,6 +81,7 @@ function BranchList() {
                   />
               </div>
           </div>
+          {openModal.action && <AddBranch open={openModal} onClose={handleOnClose} title='Add Branch' />}
       </Skeleton>
   )
 }

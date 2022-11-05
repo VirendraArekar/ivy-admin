@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { FiSettings } from 'react-icons/fi'
 import CircularButton from '../../components/CircularButton'
 import Input from '../../components/Input'
 import Select from '../../components/Select'
@@ -36,7 +37,7 @@ function CreateCouncellorForm() {
     return (
         <Skeleton>
             <div className='p-10'>
-                <TopComponent title="Setting" component="Councellor" current="Create Councellor" />
+                <TopComponent title="Setting" component="Councellor" current="Create Councellor" icon=<FiSettings color='white' /> />
                 <div className='w-auto bg-white mt-10 rounded-lg shadow-2l pb-2'>
                     <div className='p-5 border-b border-#6c6c6c-500  m-b-2'>
                         <h1 style={{ fontWeight: 700 }}>Add Councellor</h1>

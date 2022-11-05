@@ -1,13 +1,19 @@
-import React from 'react'
+import React ,{useState } from 'react'
 import Skeleton from '../../layouts/Skeleton'
 import TopComponent from '../../components/TopComponent'
 import CircularButton from '../../components/CircularButton'
 import Table from '../../components/Table'
 import { MdDelete, MdEdit } from 'react-icons/md'
 import { useNavigate } from 'react-router-dom'
+import AddQualification from './AddQualificationModal'
+import { FiSettings } from 'react-icons/fi'
 
 function QualificationList() {
     const navigate = useNavigate()
+    const [openModal , setOpenModal] = useState({action:false})
+    const handleOnClose =()=>{
+        setOpenModal({action:false})
+    }
     const columns = [
         {
             name: "S.no.",
@@ -45,7 +51,7 @@ function QualificationList() {
             cell: (row) =>
                 <>
                     <button className='btn-bg-green  hover:btn-bg-green text-white font-bold py-2 px-2 rounded mx-1'><MdEdit /></button>
-                    <button className='btn-bg-gray  hover:btn-bg-grey text-white font-bold py-2 px-2 rounded mx-1'><MdDelete /></button>
+                    
                 </>
         },
     ]
@@ -58,12 +64,12 @@ function QualificationList() {
   return (
       <Skeleton>
           <div className='p-10'>
-              <TopComponent title="Setting" component="Qualification" current="List" />
+              <TopComponent title="Setting" component="Qualification" current="List" icon=<FiSettings color='white' /> />
               <div className='w-auto bg-white mt-10 rounded-lg shadow-2l pb-2'>
                   <div className='p-5 border-b border-#6c6c6c-500  m-b-2 flex justify-between'>
                       <div className='py-3 px-3'><h1 style={{ fontWeight: 700 }}>Qualifiacation</h1></div>
                       <div className='px-8 py-3'>
-                          <CircularButton title={'New Qualifiacation'} bgColor={'btn-bg-green'} bgColorHover={''} onClick ={()=> navigate("/qualification/create")}/>
+                          <CircularButton title={'New Qualifiacation'} bgColor={'btn-bg-green'} bgColorHover={''} onClick ={()=> setOpenModal({action:true})}/>
                       </div>
                   </div>
 
@@ -73,6 +79,7 @@ function QualificationList() {
                   />
               </div>
           </div>
+          {openModal.action && <AddQualification open={openModal} onClose={handleOnClose} title ='Add Qualification'/>}
       </Skeleton>
   )
 }
