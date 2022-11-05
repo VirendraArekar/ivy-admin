@@ -1,14 +1,24 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Skeleton from '../../layouts/Skeleton'
 import {  useNavigate } from 'react-router-dom'
 import TopComponent from '../../components/TopComponent'
 import CircularButton from '../../components/CircularButton'
 import Table from '../../components/Table'
 import { MdDelete, MdEdit } from 'react-icons/md'
+import EditCouncellor from './Edit'
+import { FiSettings } from 'react-icons/fi'
 
 
 function CouncellorList() {
     const navigate =useNavigate()
+    const [openEdit ,setOpenEdit ] = useState({
+        action: false,
+        value:null
+    })
+    const handleOnClose =() => setOpenEdit({
+        action: false,
+        value: null
+    })
     const columns = [
         {
             name: "S.no.",
@@ -43,30 +53,39 @@ function CouncellorList() {
             </button>
         },
         {
+            name: "Date Added",
+            selector: (row) => new Date(row.createdAt).toDateString()
+        },
+        {
             name: "Action",
             cell: (row) =>
                 <>
-                    <button className='btn-bg-green  hover:btn-bg-green text-white font-bold py-2 px-2 rounded mx-1'><MdEdit /></button>
+                    <button className='btn-bg-green  hover:btn-bg-green text-white font-bold py-2 px-2 rounded mx-1'
+                    onClick={()=> setOpenEdit({
+                        action: true,
+                        value: row
+                    })}
+                    ><MdEdit /></button>
                     {/* <button className='btn-bg-gray  hover:btn-bg-grey text-white font-bold py-2 px-2 rounded mx-1'><MdDelete /></button> */}
                 </>
         },
     ]
     const data = [
-        { sno: 1, firstName: "Abhishek", lastName: "Sharma", destination: "Australia",branch:"Branch_1", email: "abhi@abhi.com", isActive:true},
-        { sno: 2, firstName: "Abhishek", lastName: "Sharma", destination: "US", branch: "Branch_1", email: "abhi@abhi.com", isActive: true },
-        { sno: 3, firstName: "Abhishek", lastName: "Sharma", destination: "Australia", branch: "Branch_1", email: "abhi@abhi.com", isActive: false },
-        { sno: 4, firstName: "Abhishek", lastName: "Sharma", destination: "Australia", branch: "Branch_1", email: "abhi@abhi.com", isActive: true },
-        { sno: 5, firstName: "Abhishek", lastName: "Sharma", destination: "UK", branch: "Branch_1", email: "abhi@abhi.com", isActive: false },
-        { sno: 6, firstName: "Abhishek", lastName: "Sharma", destination: "Australia", branch: "Branch_1", email: "abhi@abhi.com", isActive: true },
-        { sno: 7, firstName: "Abhishek", lastName: "Sharma", destination: "Australia", branch: "Branch_1", email: "abhi@abhi.com", isActive: true },
-        { sno: 8, firstName: "Abhishek", lastName: "Sharma", destination: "Australia", branch: "Branch_1", email: "abhi@abhi.com", isActive: true },
+        { sno: 1, firstName: "Abhishek", lastName: "Sharma", destination: "Australia", branch: "Branch_1", email: "abhi@abhi.com", isActive: true, createdAt: "2022-10-26T06:47:16.859Z" },
+        { sno: 2, firstName: "Abhishek", lastName: "Sharma", destination: "US", branch: "Branch_1", email: "abhi@abhi.com", isActive: true, createdAt: "2022-10-26T06:47:16.859Z" },
+        { sno: 3, firstName: "Abhishek", lastName: "Sharma", destination: "Australia", branch: "Branch_1", email: "abhi@abhi.com", isActive: false, createdAt: "2022-10-26T06:47:16.859Z" },
+        { sno: 4, firstName: "Abhishek", lastName: "Sharma", destination: "Australia", branch: "Branch_1", email: "abhi@abhi.com", isActive: true, createdAt: "2022-10-26T06:47:16.859Z" },
+        { sno: 5, firstName: "Abhishek", lastName: "Sharma", destination: "UK", branch: "Branch_1", email: "abhi@abhi.com", isActive: false, createdAt: "2022-10-26T06:47:16.859Z" },
+        { sno: 6, firstName: "Abhishek", lastName: "Sharma", destination: "Australia", branch: "Branch_1", email: "abhi@abhi.com", isActive: true, createdAt: "2022-10-26T06:47:16.859Z" },
+        { sno: 7, firstName: "Abhishek", lastName: "Sharma", destination: "Australia", branch: "Branch_1", email: "abhi@abhi.com", isActive: true, createdAt: "2022-10-26T06:47:16.859Z" },
+        { sno: 8, firstName: "Abhishek", lastName: "Sharma", destination: "Australia", branch: "Branch_1", email: "abhi@abhi.com", isActive: true, createdAt: "2022-10-26T06:47:16.859Z" },
        
         
     ]
   return (
       <Skeleton>
           <div className='p-10'>
-              <TopComponent title="Setting" component="Source" current="List" />
+              <TopComponent title="Setting" component="Source" current="List" icon=<FiSettings color='white' /> />
               <div className='w-auto bg-white mt-10 rounded-lg shadow-2l pb-2'>
                   <div className='p-5 border-b border-#6c6c6c-500  m-b-2 flex justify-between'>
                       <div className='py-3 px-3'><h1 style={{ fontWeight: 700 }}>Councellor</h1></div>
@@ -82,6 +101,7 @@ function CouncellorList() {
                   />
               </div>
           </div>
+          {openEdit.action && <EditCouncellor open={openEdit} onClose ={handleOnClose}/>}
       </Skeleton>
   )
 }

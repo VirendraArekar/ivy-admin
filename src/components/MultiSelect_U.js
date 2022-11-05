@@ -11,9 +11,9 @@ function MultiSelect({label , onSelect , value}) {
     
     return (
         <div>
-           {label && <label className='block text-gray-700 text-sm font-bold mb-2'>{label}</label>}
+           {label && <label className='block text-gray-700  text-sm font-bold mb-2'>{label}</label>}
             <Multiselect
-                className="shadow appearance-none w-50% text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                className="shadow appearance-none w-10 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                 options={data}
                 displayValue="Country"
                 style={{

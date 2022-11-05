@@ -4,9 +4,10 @@ import CircularButton from '../../components/CircularButton'
 import Input from '../../components/Input'
 import { IoCloseOutline } from 'react-icons/io5';
 import Select from '../../components/Select'
+import Modal from '../../components/Modal';
 
 
-function EditCouncellor({open , onClose}) {
+function EditCouncellor({open , onClose , title}) {
     
     const { value } = open
     console.log("values -- ", value)
@@ -38,26 +39,9 @@ function EditCouncellor({open , onClose}) {
         setEmail('')
         setCouncellorType('')
     }
-    const handleOnClose =(e) =>{
-        if(e.target.id === "modal") onClose()
-    }
-    const handleClose =() =>{
-        onClose()
-    }
-    if(!open.action) return null;
     
   return (
-      <div
-      id='modal' 
-      onClick={handleOnClose}
-          className="fixed z-50 inset-0 bg-black bg-opacity-25 backdrop-blur-[2px] flex items-center justify-center ">
-          <div className='w-2/4 bg-white mt-10 rounded-lg shadow-2l pb-2 max-h-screen fit-content overflow-x-hidden overflow-y-auto'>
-              <div className='p-5 border-b border-#6c6c6c-500  m-b-2 flex justify-between'>
-                  <h1 style={{ fontWeight: 700 }}>Edit Councellor</h1>
-                  <button onClick={handleClose}>
-                      <IoCloseOutline />
-                  </button>
-              </div>
+      <Modal open={open} onClose={onClose} title={title} >
               <div className='pb-10 pt-5 px-5'>
                   <div className='py-3 px-3 bg-neutral-200 md:w-2/4 lg:w-2/6  rounded-md font-semibold mb-6' >Main Information</div>
                   <form action='#' onSubmit={(event) => onSubmit(event)}>
@@ -160,8 +144,7 @@ function EditCouncellor({open , onClose}) {
                       </div>
                   </form>
               </div>
-          </div>
-      </div>
+      </Modal> 
   )
 }
 

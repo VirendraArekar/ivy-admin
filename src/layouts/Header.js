@@ -4,7 +4,7 @@ export default function Header(props){
     const {show, setShow, sideBar, setSideBar,profile, setProfile, responsive} = props;
     return(
 
-        <nav className="h-16 flex items-center lg:items-stretch justify-end lg:justify-between bg-white shadow relative z-10">
+        <nav className="h-16 flex items-center lg:items-stretch justify-end lg:justify-between bg-white shadow relative z-0">
         <div className="hidden lg:flex w-full pr-6">
             <div className="w-1/2 h-full hidden lg:flex items-center pl-3 pr-24">
                 {

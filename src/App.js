@@ -1,5 +1,5 @@
 // import Sidebar from './layouts/Sidebar';
-import { BrowserRouter as Router, Route, Link, Routes } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 // import Skeleton from './layouts/Skeleton';
 import Blank from './pages/Blank'
 import CreateBranchForm from "./pages/Branch/Create";
@@ -21,10 +21,12 @@ import SignupForm from "./pages/SignInSignUp/SignupForm";
 import SignInForm from "./pages/SignInSignUp/SignInForm";
 import DropDownPage from "./pages/DropDownPage";
 import UsersList from "./pages/Users/UsersList";
-import CreateUser from "./pages/Users/CreateUser"
+// import CreateUser from "./pages/Users/AddUserModel"
 import Enquiry from "./pages/Dashboard/Enquiry";
 import Leads_Enquiry from "./pages/Dashboard/Leads_Enquiries";
 import Leads_Enquiry_Visa from "./pages/Dashboard/Leads_Enquiries_visa";
+import UniversityList from "./pages/University/List";
+import CreateUniversityForm from "./pages/University/Create";
 
 
 
@@ -52,14 +54,21 @@ function App() {
           <Route exact path="/qualification/create" element={<CreateQualificationForm />} />
           <Route exact path="/branch/list" element={<BranchList />} />
           <Route exact path="/branch/create" element={<CreateBranchForm />} />
+          <Route exact path="/university/list" element={<UniversityList />} />
+          <Route exact path="/university/create" element={<CreateUniversityForm />} />
 
           <Route exact path="/users/list" element={<UsersList/>} />
-          <Route exact path="/users/create" element={<CreateUser/>} />
+          {/* <Route exact path="/users/create" element={<CreateUser/>} /> */}
           <Route exact path="/dashboard/enquiry" element={<Enquiry/>} />
           <Route exact path="/dashboard/leads_enquiry" element={<Leads_Enquiry/>} />
           <Route exact path="/dashboard/leads_enquiry_visa" element={<Leads_Enquiry_Visa/>} />
+
           {/* <Route exact path="/dashboard/leads_enquiry_visa/er" element={<Leads_Enquiry_Visa/>} /> */}
           {/* <Skeleton/> */  }
+
+          <Route exact path="/dropdown/page" element={<DropDownPage />} />
+          {/* <Skeleton/> */}
+
         </Routes>
       </Router>
     </div>

@@ -9,9 +9,7 @@ body{
 .allbtn{
     margin-top: 1rem;
 }
-.rounded{
-    width: 100%;
-}
+
 .inputs{
     border-bottom: 2px solid gray;
     padding: 20px;
