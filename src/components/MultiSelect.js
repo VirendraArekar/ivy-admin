@@ -1,7 +1,7 @@
 import React from 'react'
 import { Multiselect } from 'multiselect-react-dropdown'
 
-function MultiSelect({label , onSelect , value}) {
+function MultiSelect({ label, onSelect, required, value, checkbox }) {
     const data = [
         { Country: "India", id: 1 },
         { Country: "America", id: 2 },
@@ -10,11 +10,15 @@ function MultiSelect({label , onSelect , value}) {
     ]
     return (
         <div>
-           {label && <label className='block text-gray-700 text-sm font-bold mb-2'>{label}</label>}
+           {label && <label className='block text-gray-700 text-sm font-bold mb-2'>
+                {label}{required && <span className="text-red-500">&nbsp;*</span>}
+           </label>}
             <Multiselect
                 className="shadow appearance-none rounded w-full text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                 options={data}
                 displayValue="Country"
+                showCheckbox ={checkbox ? true: false}
+                required ={required ? true : false}
                 style={{
                     searchBox:{
                         paddingLeft:"12px",

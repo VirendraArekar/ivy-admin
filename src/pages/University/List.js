@@ -1,14 +1,14 @@
-import React, { useState } from 'react'
+import React,{useState} from 'react'
 import Skeleton from '../../layouts/Skeleton'
 import TopComponent from '../../components/TopComponent'
 import CircularButton from '../../components/CircularButton'
 import Table from '../../components/Table'
 import { MdDelete, MdEdit } from 'react-icons/md'
 import { useNavigate } from 'react-router-dom'
-import AddCountry from './AddCountryModal'
+import AddUniversity from './AddUniversityModal'
 import { FiSettings } from 'react-icons/fi'
 
-function CountryList() {
+function UniversityList() {
     const navigate = useNavigate()
     const [openModal, setOpenModal] = useState({ action: false })
     const handleOnClose = () => {
@@ -22,9 +22,8 @@ function CountryList() {
             sortable: true,
         },
         {
-            name: "Country",
+            name: "University",
             selector: (row) => row.name,
-            width: "250px"
         },
         {
             name: "Date Added",
@@ -48,29 +47,20 @@ function CountryList() {
         },
     ]
     const data = [
-        { sno: 1, name: "Australia",createdAt: "2022-10-26T06:47:16.859Z", isActive: true},
-        { sno: 2, name: "Canada",createdAt: "2022-10-27T06:47:16.859Z", isActive: true},
-        { sno: 3, name: "USA",createdAt: "2022-10-28T06:47:16.859Z", isActive: true},
-        { sno: 4, name: "UK",createdAt: "2022-10-29T06:47:16.859Z", isActive: true},
-        { sno: 5, name: "France",createdAt: "2022-10-30T06:47:16.859Z", isActive: true},
-        { sno: 6, name: "Ireland",createdAt: "2022-10-31T06:47:16.859Z", isActive: true},
-        { sno: 7, name: "New Zealand",createdAt: "2022-11-01T06:47:16.859Z", isActive: true},
-        { sno: 8, name: "Germany",createdAt: "2022-11-0206:47:16.859Z", isActive: true},
-        { sno: 9, name: "China",createdAt: "2022-11-03T06:47:16.859Z", isActive: true},
-        { sno: 10, name: "Russia",createdAt: "2022-11-04T06:47:16.859Z", isActive: true},
-        { sno: 11, name: "Dubai",createdAt: "2022-11-05T06:47:16.859Z", isActive: true},
-        { sno: 12, name: "South Africa",createdAt: "2022-11-06T06:47:16.859Z", isActive: true},
-        { sno: 13, name: "Australia",createdAt: "2022-11-07T06:47:16.859Z", isActive: true},
+        { sno: 1, name: "Australia. AM",createdAt: "2022-10-26T06:47:16.859Z", isActive: true},
+        { sno: 2, name: "Canada",createdAt: "2022-10-26T06:47:16.859Z", isActive: true},
+        { sno: 3, name: "USA",createdAt: "2022-10-26T06:47:16.859Z", isActive: true},
+        
     ]
   return (
       <Skeleton>
           <div className='p-10'>
-              <TopComponent title="Setting" component="Country" current="List" icon=<FiSettings color='white' /> />
+              <TopComponent title="Setting" component="University" current="List" icon=<FiSettings color='white' /> />
               <div className='w-auto bg-white mt-10 rounded-lg shadow-2l pb-2'>
                   <div className='p-5 border-b border-#6c6c6c-500  m-b-2 flex justify-between'>
-                      <div className='py-3 px-3'><h1 style={{ fontWeight: 700 }}>Country</h1></div>
+                      <div className='py-3 px-3'><h1 style={{ fontWeight: 700 }}>University</h1></div>
                       <div className='px-8 py-3'>
-                          <CircularButton title={'New Country'} bgColor={'btn-bg-green'} bgColorHover={''} onClick ={()=>setOpenModal({action: true})}/>
+                          <CircularButton title={'New University'} bgColor={'btn-bg-green'} bgColorHover={''} onClick ={()=> setOpenModal({action:true})}/>
                       </div>
                   </div>
 
@@ -80,9 +70,9 @@ function CountryList() {
                   />
               </div>
           </div>
-          {openModal.action && <AddCountry open={openModal} onClose={handleOnClose} title='Add Country' />}
+          {openModal.action && <AddUniversity open={openModal} onClose={handleOnClose} title='Add University' />}
       </Skeleton>
   )
 }
 
-export default CountryList
+export default UniversityList
