@@ -21,7 +21,7 @@ const customStyles = {
     transform: "translate(-50%, -50%)",
     zIndex: "12389",
     position: "fixed",
-    width: "88%",
+    width: "70%",
     height: "82%",
   },
 };
@@ -189,12 +189,12 @@ function UserList() {
     {
       name: "Module Permissions",
       selector: (row) => `${row.firstName} ${row.lastName}`,
-      width: "200px",
+      width: "150px",
     },
     {
       name: "Enquiry Assign",
       // selector: (row) => row.email,
-      width: "150px",
+      width: "100px",
       cell: (row) => (
         <>
           <input type={"checkbox"}></input>
@@ -210,7 +210,7 @@ function UserList() {
           <input type={"checkbox"}></input>
         </>
       ),
-      width: "120px",
+      width: "100px",
     },
 
     {
@@ -220,7 +220,7 @@ function UserList() {
           <input type={"checkbox"}></input>
         </>
       ),
-      width: "120px",
+      width: "100px",
     },
     {
       name: "Delete",
@@ -229,7 +229,7 @@ function UserList() {
           <input type={"checkbox"}></input>
         </>
       ),
-      width: "120px",
+      width: "100px",
     },
     {
       name: "Read",
@@ -239,7 +239,7 @@ function UserList() {
         </>
       ),
 
-      width: "120px",
+      width: "100px",
     },
   ];
   const data_add = [
@@ -416,7 +416,9 @@ function UserList() {
       <div className="p-8">
         <TopComponent title="User" component="Users" current="List" />
         <div className="w-auto bg-white mt-10 rounded-lg shadow-2l pb-2">
+        
           <div className="p-5 border-b border-#6c6c6c-500  m-b-2 flex justify-between">
+          <div className='py-3 px-3'><h1 style={{ fontWeight: 700 }}>Users</h1></div>
             <div className="px-8 py-3">
               <CircularButton
                 onClick={openModal}

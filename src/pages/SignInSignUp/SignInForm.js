@@ -101,7 +101,7 @@ export default function SignInForm(props) {
                 
               />
               </div>
-             <div className="mt-2">
+             <div className="mt-2 flex justify-center allbtn">
              <label
                   for="alreadyAcc"
                   className="ml-2 text-sm font-medium text-gray-900 dark:text-gray-400 "
@@ -109,7 +109,12 @@ export default function SignInForm(props) {
                   Don't have an account?{" "}
                   <Link class="text-blue-600 hover:underline dark:text-blue-500" to="/signup">SignUp</Link>
                   
-                </label>
+              </label>
+
+             </div>
+             <div className="flex justify-center allbtn mt-3 ">
+
+             <Link class="text-blue-400 text-xs hover:underline dark:text-blue-400" to="/#">Terms of Use.Privacy policy</Link>
              </div>
             </form>
           </div>
