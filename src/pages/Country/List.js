@@ -12,9 +12,9 @@ function CountryList() {
     const navigate = useNavigate()
     const [openModal, setOpenModal] = useState({ action: false })
     const handleOnClose = () => {
-        setOpenModal({ action: false })
+        setOpenModal({ action: false })  
     }
-    const columns = [
+    const columns = [ 
         {
             name: "S.no.",
             selector: (row) => row.sno,

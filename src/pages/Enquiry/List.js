@@ -1,12 +1,17 @@
-import React, { useEffect }  from 'react'
+import React, { useEffect,useState }  from 'react'
 import { MdDelete, MdEdit } from 'react-icons/md'
 import axios from 'axios';
 import CircularButton from '../../components/CircularButton'
 import Table from '../../components/Table'
 import TopComponent from '../../components/TopComponent'
 import Skeleton from '../../layouts/Skeleton'
+import AddEnquiryModal from './AddEnquiryModal';
 
 function List() {
+    const [openModal, setOpenModal] = useState({ action: false })
+    const handleOnClose = () => {
+        setOpenModal({ action: false })
+    }
     const statusColor = (row) => {
         if (row.status === "Completed") {
             return { color: "green" }
@@ -96,7 +101,7 @@ function List() {
                     <div className='p-5 border-b border-#6c6c6c-500  m-b-2 flex justify-between'>
                         <div className='py-3 px-3'><h1 style={{ fontWeight: 700 }}>Enquiries</h1></div>
                         <div className='px-8 py-3'>
-                            <CircularButton title={'New Enquiry'} bgColor={'btn-bg-green'} bgColorHover={''} />
+                            <CircularButton title={'New Enquiry'} bgColor={'btn-bg-green'} bgColorHover={''} onClick ={()=>setOpenModal({action: true})} />
                         </div>
                     </div>
 
@@ -107,6 +112,7 @@ function List() {
                     />
                 </div>
             </div>
+            {openModal.action && <AddEnquiryModal open={openModal} onClose={handleOnClose} title='Add Enquiry'/>}
         </Skeleton>
     )
 }

@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import CircularButton from '../../components/CircularButton'
 import Input from '../../components/Input'
+import Modal from '../../components/Modal'
 import Select from '../../components/Select'
 import TopComponent from '../../components/TopComponent'
-import Skeleton from '../../layouts/Skeleton'
 
-function CreateEnquiryForm() {
+
+function AddEnquiryModal({ title, open, onClose }) {
     const [firstName, setFirstName] = useState('')
     const [lastName, setLastName] = useState('')
     const [email, setEmail] = useState('')
@@ -33,18 +34,15 @@ function CreateEnquiryForm() {
         setCountry('')
         setLead('')
     }
-    useEffect(()=>{
-        
-    },[])
+   
     return (
-        <Skeleton>
+        <Modal title={title}
+        open={open} onClose={onClose}>
             <div className='p-10'>
-                <TopComponent title="Enquiry" component="Enquiry" current="Add Enquiry" />
+              
                 <div className='w-auto bg-white mt-10 rounded-lg shadow-2l pb-2'>
-                    <div className='p-5 border-b border-#6c6c6c-500  m-b-2'>
-                        <h1 style={{ fontWeight: 700 }}>Add Enquiry</h1>
-                    </div>
-                    <div className='py-10 px-5'>
+                    
+                    <div className='py-5 px-5'>
                         <div className='py-3 px-3 bg-neutral-200 w-80 rounded-md font-semibold mb-6' >Enquiry Information</div>
                         <form action='#' onSubmit={(event) => onSubmit(event)}>
                             <div className='mb-5'>
@@ -121,8 +119,8 @@ function CreateEnquiryForm() {
                     </div>
                 </div>
             </div>
-        </Skeleton>
+        </Modal>
     )
 }
 
-export default CreateEnquiryForm
+export default AddEnquiryModal

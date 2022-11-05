@@ -11,7 +11,7 @@ import CreateCountryForm from "./pages/Country/Create";
 import CountryList from "./pages/Country/List";
 import Dashboard from "./pages/Dashboard";
 import AssignEnquiryForm from "./pages/Enquiry/AssignEnquiry";
-import CreateEnquiryForm from "./pages/Enquiry/Create";
+import CreateEnquiryForm from "./pages/Enquiry/AddEnquiryModal";
 import List from "./pages/Enquiry/List";
 import CreateQualificationForm from "./pages/Qualification/Create";
 import QualificationList from "./pages/Qualification/List";
