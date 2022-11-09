@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link,useNavigate } from "react-router-dom";
 import 'alpinejs';
 export default function Sidebar(props) {
     const { show, setShow, eqNav, setEqNav, dashboardNav, setDashboardNav, settingNav, setSettingNav, sideBar, setSideBar, windowWidth } = props;
-
+    const navigate = useNavigate();
 
 
     return (
@@ -23,8 +23,9 @@ export default function Sidebar(props) {
                                         <path d="M12 5.432l8.159 8.159c.03.03.06.058.091.086v6.198c0 1.035-.84 1.875-1.875 1.875H15a.75.75 0 01-.75-.75v-4.5a.75.75 0 00-.75-.75h-3a.75.75 0 00-.75.75V21a.75.75 0 01-.75.75H5.625a1.875 1.875 0 01-1.875-1.875v-6.198a2.29 2.29 0 00.091-.086L12 5.43z" />
                                     </svg>
                                 </div>
-                                <span className="ml-2">Dashboard</span>
-                                <div className="absolute right-0 mx-1">
+                                
+                                <span className="ml-2" onClick={() => {navigate('/dashboard')}}>Dashboard</span>
+                                {/* <div className="absolute right-0 mx-1">
                                     {
                                         dashboardNav ?
                                             <span onClick={() => { setDashboardNav(false) }}>
@@ -41,25 +42,25 @@ export default function Sidebar(props) {
                                                 </svg>
                                             </span>
                                     }
-                                </div>
+                                </div> */}
                             </div>
-                            {
+                            {/* {
                                 dashboardNav &&
                                 <ul className=" my-3 space-y-2 bg-white ml-6">
                                     <li>
-                                        <Link to="/"
+                                        <Link to="/enquiry" 
                                             className="flex items-center w-full font-medium  ml-5 p-1 px-2 hover:text-indigo-700 focus:text-indigo-700 focus:outline-none">Menu 1</Link>
                                     </li>
                                     <li>
-                                        <a href="#"
+                                        <a href="/leads_enquiry"
                                             className="flex items-center w-full font-medium  ml-5 p-1 px-2 hover:text-indigo-700 focus:text-indigo-700 focus:outline-none">Menu 2</a>
                                     </li>
                                     <li>
-                                        <a href="#"
+                                        <a href="/leads_enquiry_visa"
                                             className="flex items-center w-full font-medium ml-5 p-1 px-2 hover:text-indigo-700 focus:text-indigo-700 focus:outline-none">Menu 3</a>
                                     </li>
                                 </ul>
-                            }
+                            } */}
                         </li>
                         <li className=" cursor-pointer text-gray-600 text-sm leading-3 tracking-normal ">
                             <div className="flex pl-6 p-2 relative items-center font-semibold hover:text-indigo-700 focus:text-indigo-700 focus:outline-none mr-2">
@@ -92,18 +93,18 @@ export default function Sidebar(props) {
                             {
                                 eqNav &&
                                 <ul id="dropdown-example" className=" py-3 space-y-2 pl-7">
+                                    
                                     <li>
-                                        <Link to="/enquiry/create"
-                                            className="flex items-center w-full font-medium  ml-5 p-1 px-2 hover:text-indigo-700 focus:text-indigo-700 focus:outline-none">
-                                            Add</Link>
+                                        <span 
+                                            className="flex items-center w-full font-medium  ml-5 p-1 px-2 hover:text-indigo-700 focus:text-indigo-700 focus:outline-none" onClick={() => {navigate('/enquiry/addleads')}} >Add Leads</span>
                                     </li>
                                     <li>
-                                        <Link to="/enquiry/list"
-                                            className="flex items-center w-full font-medium  ml-5 p-1 px-2 hover:text-indigo-700 focus:text-indigo-700 focus:outline-none">List</Link>
+                                        <span 
+                                            className="flex items-center w-full font-medium  ml-5 p-1 px-2 hover:text-indigo-700 focus:text-indigo-700 focus:outline-none" onClick={() => {navigate('/enquiry/list')}}>Students List</span>
                                     </li>
                                     <li>
-                                        <a href="/enquiry/assign"
-                                            className="flex items-center w-full font-medium ml-5 p-1 px-2 hover:text-indigo-700 focus:text-indigo-700 focus:outline-none">Assign Inquiry</a>
+                                        <span
+                                            className="flex items-center w-full font-medium ml-5 p-1 px-2 hover:text-indigo-700 focus:text-indigo-700 focus:outline-none" onClick={() => {navigate('/enquiry/assign')}}>Assign Enquiry</span>
                                     </li>
                                 </ul>
                             }
@@ -124,7 +125,7 @@ export default function Sidebar(props) {
                                     <path d="M6.25 6.375a4.125 4.125 0 118.25 0 4.125 4.125 0 01-8.25 0zM3.25 19.125a7.125 7.125 0 0114.25 0v.003l-.001.119a.75.75 0 01-.363.63 13.067 13.067 0 01-6.761 1.873c-2.472 0-4.786-.684-6.76-1.873a.75.75 0 01-.364-.63l-.001-.122zM19.75 7.5a.75.75 0 00-1.5 0v2.25H16a.75.75 0 000 1.5h2.25v2.25a.75.75 0 001.5 0v-2.25H22a.75.75 0 000-1.5h-2.25V7.5z" />
                                 </svg>
 
-                                <span className="ml-2">Users</span>
+                                <span className="ml-2" onClick={() => {navigate('/users/list')}}>User Role</span>
                             </div>
                         </li>
                         <li className="cursor-pointer text-gray-600 text-sm leading-3 tracking-normal">
@@ -155,78 +156,60 @@ export default function Sidebar(props) {
                             </div>
                             {
                                 settingNav &&
-                                <div className="py-3 mx-7 bg-white pl-7">
-                                    <div className="float-left mb-2 mt-1 font-semibold">Source</div>
+                                <div className="py-2 mx-5 bg-white pl-3">
                                     <ul id="dropdown-example" className="space-y-2">
+                                        
                                         <li>
-                                            <a href="/source/create"
-                                                className="flex items-center w-full font-medium  ml-3 p-1 px-2 hover:text-indigo-700 focus:text-indigo-700 focus:outline-none">Add</a>
-                                        </li>
-                                        <li>
-                                            <a href="/source/list"
-                                                className="flex items-center w-full font-medium  ml-3 p-1 px-2 hover:text-indigo-700 focus:text-indigo-700 focus:outline-none">List</a>
+                                            <span 
+                                                className="flex leading-4 items-center w-full font-semibold  ml-3 p-1.5 px-2 hover:text-indigo-700 focus:text-indigo-700 focus:outline-none"  onClick={() => {navigate('/source')}}>Source Configuration</span>
                                         </li>
 
                                     </ul>
 
-                                    <div className="float-left mb-2 mt-5 font-semibold">Country</div>
+                                    
                                     <ul id="dropdown-example" className="space-y-2">
+                                        
                                         <li>
-                                            <a href="#"
-                                                className="flex items-center w-full font-medium  ml-3 p-1 px-2 hover:text-indigo-700 focus:text-indigo-700 focus:outline-none">Add</a>
-                                        </li>
-                                        <li>
-                                            <a href="#"
-                                                className="flex items-center w-full font-medium  ml-3 p-1 px-2 hover:text-indigo-700 focus:text-indigo-700 focus:outline-none">List</a>
+                                            <span href="country"
+                                                className="flex leading-4 leading-3 items-center w-full font-medium  ml-3 p-1.5 px-2 hover:text-indigo-700 focus:text-indigo-700 focus:outline-none"  onClick={() => {navigate('/country')}}>Country  Configuration</span>
                                         </li>
 
                                     </ul>
-                                    <div className="float-left mb-2 mt-5 font-semibold">Qualification</div>
+                                    
                                     <ul id="dropdown-example" className="space-y-2">
+                                       
                                         <li>
-                                            <a href="#"
-                                                className="flex items-center w-full font-medium  ml-3 p-1 px-2 hover:text-indigo-700 focus:text-indigo-700 focus:outline-none">Add</a>
-                                        </li>
-                                        <li>
-                                            <a href="#"
-                                                className="flex items-center w-full font-medium  ml-3 p-1 px-2 hover:text-indigo-700 focus:text-indigo-700 focus:outline-none">List</a>
+                                            <span
+                                                className="flex items-center leading-4 w-full font-medium ml-3 p-1.5 px-2 hover:text-indigo-700 focus:text-indigo-700 focus:outline-none"onClick={() => {navigate('/qualification')}}>Qualification  Configuration</span>
                                         </li>
 
                                     </ul>
 
-                                    <div className="float-left mb-2 mt-5 font-semibold">Counsellor</div>
+                                    
                                     <ul id="dropdown-example" className="space-y-2">
+                                        
                                         <li>
-                                            <a href="/councellor/create"
-                                                className="flex items-center w-full font-medium  ml-3 p-1 px-2 hover:text-indigo-700 focus:text-indigo-700 focus:outline-none">Add</a>
-                                        </li>
-                                        <li>
-                                            <a href="/councellor/list"
-                                                className="flex items-center w-full font-medium  ml-3 p-1 px-2 hover:text-indigo-700 focus:text-indigo-700 focus:outline-none">List</a>
+                                        <span
+                                                className="flex items-center leading-4 w-full font-medium  ml-3 p-1.5 px-2 hover:text-indigo-700 focus:text-indigo-700 focus:outline-none" onClick={() => {navigate('/councellor')}}>Counsellor  Configuration</span>
+                                         
                                         </li>
 
                                     </ul>
 
-                                    <div className="float-left mb-2 mt-5 font-semibold">Branch</div>
+                                    
                                     <ul id="dropdown-example" className="space-y-2">
+                                       
                                         <li>
-                                            <a href="#"
-                                                className="flex items-center w-full font-medium  ml-3 p-1 px-2 hover:text-indigo-700 focus:text-indigo-700 focus:outline-none">Add</a>
-                                        </li>
-                                        <li>
-                                            <a href="#"
-                                                className="flex items-center w-full font-medium  ml-3 p-1 px-2 hover:text-indigo-700 focus:text-indigo-700 focus:outline-none">List</a>
+                                        <span
+                                                className="flex items-center leading-4 w-full font-medium  ml-3 p-1.5 px-2 hover:text-indigo-700 focus:text-indigo-700 focus:outline-none" onClick={() => {navigate('/branch')}}>Branch  Configuration</span>
                                         </li>
                                     </ul>
-                                    <div className="float-left mb-2 mt-5 font-semibold">University</div>
+                                   
                                     <ul id="dropdown-example" className="space-y-2">
+                                       
                                         <li>
-                                            <a href="#"
-                                                className="flex items-center w-full font-medium  ml-3 p-1 px-2 hover:text-indigo-700 focus:text-indigo-700 focus:outline-none">Add</a>
-                                        </li>
-                                        <li>
-                                            <a href="#"
-                                                className="flex items-center w-full font-medium  ml-3 p-1 px-2 hover:text-indigo-700 focus:text-indigo-700 focus:outline-none">List</a>
+                                        <span
+                                                className="flex items-center leading-4 w-full font-medium  ml-3 p-1.5 px-2 hover:text-indigo-700 focus:text-indigo-700 focus:outline-none" onClick={() => {navigate('/university')}}>University  Configuration</span>
                                         </li>
 
                                     </ul>
@@ -241,7 +224,7 @@ export default function Sidebar(props) {
                                     <polyline points="17 8 21 12 17 16" />
                                     <line x1={14} y1={4} x2={10} y2={20} />
                                 </svg>
-                                <span className="ml-2">Log Out</span>
+                                <a href="signup"><span className="ml-2">Log Out</span></a>
                             </div>
                         </li>
                     </ul>
@@ -345,11 +328,7 @@ export default function Sidebar(props) {
                                     {
                                         eqNav &&
                                         <ul id="dropdown-example" className=" py-3 space-y-2 pl-7">
-                                            <li>
-                                                <Link to="/enquiry/create"
-                                                    className="flex items-center w-full font-medium  ml-5 p-1 px-2 hover:text-indigo-700 focus:text-indigo-700 focus:outline-none">
-                                                    Add</Link>
-                                            </li>
+                                            
                                             <li>
                                                 <Link to="/enquiry/list"
                                                     className="flex items-center w-full font-medium  ml-5 p-1 px-2 hover:text-indigo-700 focus:text-indigo-700 focus:outline-none">List</Link>
@@ -411,10 +390,7 @@ export default function Sidebar(props) {
                                         <div className="py-3 mx-7 bg-white pl-7">
                                             <div className="float-left mb-2 mt-1 font-semibold">Source</div>
                                             <ul id="dropdown-example" className="space-y-2">
-                                                <li>
-                                                    <a href="/source/create"
-                                                        className="flex items-center w-full font-medium  ml-3 p-1 px-2 hover:text-indigo-700 focus:text-indigo-700 focus:outline-none">Add</a>
-                                                </li>
+                                                
                                                 <li>
                                                     <a href="/source/list"
                                                         className="flex items-center w-full font-medium  ml-3 p-1 px-2 hover:text-indigo-700 focus:text-indigo-700 focus:outline-none">List</a>
@@ -422,12 +398,9 @@ export default function Sidebar(props) {
 
                                             </ul>
 
-                                            <div className="float-left mb-2 mt-5 font-semibold">Country</div>
+                                            
                                             <ul id="dropdown-example" className="space-y-2">
-                                                <li>
-                                                    <a href="/country/create"
-                                                        className="flex items-center w-full font-medium  ml-3 p-1 px-2 hover:text-indigo-700 focus:text-indigo-700 focus:outline-none">Add</a>
-                                                </li>
+                                               
                                                 <li>
                                                     <a href="/country/list"
                                                         className="flex items-center w-full font-medium  ml-3 p-1 px-2 hover:text-indigo-700 focus:text-indigo-700 focus:outline-none">List</a>
@@ -436,10 +409,7 @@ export default function Sidebar(props) {
                                             </ul>
                                                 <div className="float-left mb-2 mt-5 font-semibold">Qualification</div>
                                                 <ul id="dropdown-example" className="space-y-2">
-                                                    <li>
-                                                        <a href="/qualification/create"
-                                                            className="flex items-center w-full font-medium  ml-3 p-1 px-2 hover:text-indigo-700 focus:text-indigo-700 focus:outline-none">Add</a>
-                                                    </li>
+                                                   
                                                     <li>
                                                         <a href="/qualification/list"
                                                             className="flex items-center w-full font-medium  ml-3 p-1 px-2 hover:text-indigo-700 focus:text-indigo-700 focus:outline-none">List</a>
@@ -448,10 +418,7 @@ export default function Sidebar(props) {
                                                 </ul>
                                             <div className="float-left mb-2 mt-5 font-semibold">Counsellor</div>
                                             <ul id="dropdown-example" className="space-y-2">
-                                                <li>
-                                                    <a href="/councellor/create"
-                                                        className="flex items-center w-full font-medium  ml-3 p-1 px-2 hover:text-indigo-700 focus:text-indigo-700 focus:outline-none">Add</a>
-                                                </li>
+                                               
                                                 <li>
                                                     <a href="/councellor/list"
                                                         className="flex items-center w-full font-medium  ml-3 p-1 px-2 hover:text-indigo-700 focus:text-indigo-700 focus:outline-none">List</a>
@@ -461,10 +428,7 @@ export default function Sidebar(props) {
 
                                             <div className="float-left mb-2 mt-5 font-semibold">Branch</div>
                                             <ul id="dropdown-example" className="space-y-2">
-                                                <li>
-                                                    <a href="/branch/create"
-                                                        className="flex items-center w-full font-medium  ml-3 p-1 px-2 hover:text-indigo-700 focus:text-indigo-700 focus:outline-none">Add</a>
-                                                </li>
+                                               
                                                 <li>
                                                     <a href="/branch/list"
                                                         className="flex items-center w-full font-medium  ml-3 p-1 px-2 hover:text-indigo-700 focus:text-indigo-700 focus:outline-none">List</a>
@@ -472,10 +436,7 @@ export default function Sidebar(props) {
                                             </ul>
                                             <div className="float-left mb-2 mt-5 font-semibold">University</div>
                                             <ul id="dropdown-example" className="space-y-2">
-                                                <li>
-                                                    <a href="/university/create"
-                                                        className="flex items-center w-full font-medium  ml-3 p-1 px-2 hover:text-indigo-700 focus:text-indigo-700 focus:outline-none">Add</a>
-                                                </li>
+                                               
                                                 <li>
                                                     <a href="/university/list"
                                                         className="flex items-center w-full font-medium  ml-3 p-1 px-2 hover:text-indigo-700 focus:text-indigo-700 focus:outline-none">List</a>

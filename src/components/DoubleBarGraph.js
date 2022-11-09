@@ -55,14 +55,14 @@ function DoubleBarGraph(props) {
         labels: labels,
         datasets: [
             {
-                label: "Total Payments",
+                label: "Given Leads",
                 data: datasetOne,
                 backgroundColor: "rgba(40, 99, 236)",
                 barThickness: 25,
                 borderRadius:7
             },
             {
-                label: "Total Deduction/Loss/Expenditure",
+                label: "Converted Leads",
                 data:  datasetTwo ,
                 backgroundColor: "rgba(255, 73, 73)",
                 barThickness: 25,

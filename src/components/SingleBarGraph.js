@@ -38,7 +38,7 @@ function SingleBarGraph(props) {
                 backgroundColor: "rgba(40, 99, 236)",
                 barThickness:25,
                 borderRadius: 7,
-               
+                
             },
         ],
     };

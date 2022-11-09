@@ -8,6 +8,7 @@ import { BsFillEyeFill } from 'react-icons/bs'
 import { useNavigate } from 'react-router-dom'
 import { FiSettings } from 'react-icons/fi'
 import AddSource from './AddSourceModal'
+import Button from '../../components/ButtonsComponent'
 
 function SourceList() {
     const navigate = useNavigate()
@@ -75,6 +76,14 @@ function SourceList() {
                       <div className='py-3 px-3'><h1 style={{ fontWeight: 700 }}>Source</h1></div>
                       <div className='px-8 py-3'>
                           <CircularButton title={'New Source'} bgColor={'btn-bg-green'} bgColorHover={''} onClick ={()=> setOpenModal({action:true})}/>
+                      </div>
+                  </div>
+                  <div className='p-3 border-b border-#6c6c6c-500  m-b-2 flex justify-center'>
+                      <div className='py-3 px-3'>
+                      <Button title={'Online'}></Button>
+                      </div>
+                      <div className='px-8 py-3'>
+                      <Button title={'Offline'} ></Button>
                       </div>
                   </div>
 
