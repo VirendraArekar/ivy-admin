@@ -1,4 +1,4 @@
-import React ,{useState } from 'react'
+import React ,{useState,useEffect } from 'react'
 import Skeleton from '../../layouts/Skeleton'
 import TopComponent from '../../components/TopComponent'
 import CircularButton from '../../components/CircularButton'
@@ -7,9 +7,13 @@ import { MdDelete, MdEdit } from 'react-icons/md'
 import { useNavigate } from 'react-router-dom'
 import AddQualification from './AddQualificationModal'
 import { FiSettings } from 'react-icons/fi'
+import { getAPI, postAPI , patchAPI, deleteAPI} from "../../network";
+import {formatDate} from "../../utils"
 
 function QualificationList() {
     const navigate = useNavigate()
+    const [qualification, setQualification]=useState([])
+    const [loader, setLoader] = useState(false);
     const [openModal , setOpenModal] = useState({action:false})
     const handleOnClose =()=>{
         setOpenModal({action:false})
@@ -35,7 +39,7 @@ function QualificationList() {
         },
         {
             name: "Date Added",
-            selector: (row) => new Date(row.createdAt).toDateString()
+            selector: (row) =>row.date,
         },
         {
             name: "Status",
@@ -55,16 +59,31 @@ function QualificationList() {
                 </>
         },
     ]
-    const data = [
-        { sno: 1, name: "Bachelor", country: [{ Country: "India", id: "1" }, { Country: "New Zealand", id: "2" }],createdAt: "2022-10-26T06:47:16.859Z", isActive: true},
-        { sno: 2, name: "Masters", country: [{ Country: "All", id: "2" }],createdAt: "2022-10-26T06:47:16.859Z", isActive: true},
-        { sno: 3, name: "Intermediate", country: [{ Country: "All", id: "3" }],createdAt: "2022-10-26T06:47:16.859Z", isActive: true},
+
+    // const data = [
+    //     { sno: 1, name: "Bachelor", country: [{ Country: "India", id: "1" }, { Country: "New Zealand", id: "2" }],createdAt: "2022-10-26T06:47:16.859Z", isActive: true},
+    //     { sno: 2, name: "Masters", country: [{ Country: "All", id: "2" }],createdAt: "2022-10-26T06:47:16.859Z", isActive: true},
+    //     { sno: 3, name: "Intermediate", country: [{ Country: "All", id: "3" }],createdAt: "2022-10-26T06:47:16.859Z", isActive: true},
         
-    ]
+    // ]
+
+    const getQualifcation = async () => {
+        setLoader(true)
+        let data = await getAPI(`/qualification/all`)
+        if(data) {
+            setQualification(data)
+        }
+        setLoader(false)
+      }
+      useEffect(() => {
+        getQualifcation()
+      },[]);
+      
+console.log("Qualification",qualification)
   return (
       <Skeleton>
           <div className='p-10'>
-              <TopComponent title="Setting" component="Qualification" current="List" icon=<FiSettings color='white' /> />
+              <TopComponent title="Setting" component="Qualification" current="List" icon={FiSettings} color='white' /> 
               <div className='w-auto bg-white mt-10 rounded-lg shadow-2l pb-2'>
                   <div className='p-5 border-b border-#6c6c6c-500  m-b-2 flex justify-between'>
                       <div className='py-3 px-3'><h1 style={{ fontWeight: 700 }}>Qualifiacation</h1></div>
@@ -75,11 +94,12 @@ function QualificationList() {
 
                   <Table
                       columns={columns}
-                      data={data}
+                      data={qualification
+                    }
                   />
               </div>
           </div>
-          {openModal.action && <AddQualification open={openModal} onClose={handleOnClose} title ='Add Qualification'/>}
+          {openModal.action && <AddQualification open={openModal} onClose={handleOnClose} getQualifcation title ='Add Qualification'/>}
       </Skeleton>
   )
 }

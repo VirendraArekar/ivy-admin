@@ -224,7 +224,7 @@ export default function Sidebar(props) {
                                     <polyline points="17 8 21 12 17 16" />
                                     <line x1={14} y1={4} x2={10} y2={20} />
                                 </svg>
-                                <a href="signup"><span className="ml-2">Log Out</span></a>
+                                <a href="signin"><span className="ml-2">Log Out</span></a>
                             </div>
                         </li>
                     </ul>

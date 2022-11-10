@@ -1,12 +1,11 @@
 import React from 'react'
 import { Multiselect } from 'multiselect-react-dropdown'
 
-function MultiSelect({label , onSelect , value}) {
+function MultiSelect({label ,options, onSelect , value}) {
     const data = [
-        { Country: "India", id: 1 },
-        { Country: "America", id: 2 },
-        { Country: "France", id: 3 },
-        { Country: "Germany", id: 4 },
+        { role: options[0], id: 1 },
+        { role: options[1], id: 2 },
+       
     ]
     
     return (
@@ -15,7 +14,7 @@ function MultiSelect({label , onSelect , value}) {
             <Multiselect
                 className="shadow appearance-none w-10 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                 options={data}
-                displayValue="Country"
+                displayValue="role"
                 style={{
                     searchBox:{
                         paddingLeft:"10px",

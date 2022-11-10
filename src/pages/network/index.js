@@ -1,7 +1,7 @@
-import { axiosInstance } from "../utils/axiosSetup";
+import { axiosInstance } from "../../utils/axiosSetup";
 import { toast } from "react-toastify";
-import { BASE_URL } from "../constant";
 import { apiErrors } from "../utils";
+import { BASE_URL } from "../../constant";
 import axios from 'axios'
 
 

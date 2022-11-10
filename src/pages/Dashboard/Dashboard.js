@@ -61,7 +61,7 @@ export default function Dashboard(props) {
         { Title: "Referral", Icon: "instagram", Count: 154, Progress: 100 },
         { Title: "Direct", Icon: "linkedin", Count: 78, Progress: 100 },
         { Title: " Hoarding", Icon: "google", Count: 254, Progress: 100 },
-        { Title: "Fare's data", Icon: "google", Count: 254, Progress: 100 },
+        { Title: "Fare", Icon: "google", Count: 254, Progress: 100 },
     ]
     return (
         <Skeleton>

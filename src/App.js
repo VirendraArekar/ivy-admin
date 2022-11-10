@@ -17,8 +17,7 @@ import CreateQualificationForm from "./pages/Qualification/Create";
 import QualificationList from "./pages/Qualification/List";
 import CreateSourceForm from "./pages/Source/Create";
 import SourceList from "./pages/Source/List";
-import SignupForm from "./pages/SignInSignUp/SignupForm";
-import SignInForm from "./pages/SignInSignUp/SignInForm";
+import SignInForm from "./pages/Auth/SignInForm";
 import DropDownPage from "./pages/DropDownPage";
 import UsersList from "./pages/Users/UsersList";
 // import CreateUser from "./pages/Users/AddUserModel"
