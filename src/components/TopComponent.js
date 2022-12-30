@@ -1,5 +1,6 @@
 import React from 'react'
 import { FiUsers, FiSettings } from 'react-icons/fi'
+import { FcUp } from "react-icons/fc";
 
 
 function TopComponent({ title, current, component, icon = <FiUsers color='white' /> }) {

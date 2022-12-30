@@ -1,12 +1,18 @@
-import React, { useEffect }  from 'react'
+import React, { useEffect,useState }  from 'react'
 import { MdDelete, MdEdit } from 'react-icons/md'
 import axios from 'axios';
 import CircularButton from '../../components/CircularButton'
 import Table from '../../components/Table'
 import TopComponent from '../../components/TopComponent'
 import Skeleton from '../../layouts/Skeleton'
+import AddEnquiryModal from './AddEnquiryModal';
 
+import "./style.css"
 function List() {
+    const [openModal, setOpenModal] = useState({ action: false })
+    const handleOnClose = () => {
+        setOpenModal({ action: false })
+    }
     const statusColor = (row) => {
         if (row.status === "Completed") {
             return { color: "green" }
@@ -33,6 +39,10 @@ function List() {
             name: "Email",
             selector: (row) => row.email,
             width: "180px"
+        },
+        {
+            name:"Branch",
+            selector:(row) => row.branch,
         },
         {
             name: "Mobile",
@@ -64,17 +74,17 @@ function List() {
         },
     ]
     const data = [
-        { sno: 1, name: "Abhishek Sharma", email: "abc@gmail.com", mobile: "9856321254", countryInterested: "India", programmeInterested: "MBBS", assignedTo: "Gabbar Singh", status: "Completed" },
-        { sno: 2, name: "Albert Moody", email: "albert@gmail.com", mobile: "9123456789", countryInterested: "Australia", programmeInterested: "Economics", assignedTo: "Martin Gill", status: "Completed" },
-        { sno: 3, name: "William Din", email: "williamd@gmail.com", mobile: "9856321254", countryInterested: "UK", programmeInterested: "Data Science", assignedTo: "John Doe", status: "Processing" },
-        { sno: 4, name: "Ashley Lynch", email: "ashley@gmail.com", mobile: "9856321254", countryInterested: "New Zealand", programmeInterested: "Medical", assignedTo: "John Doe", status: "Rejected" },
-        { sno: 5, name: "Jeffery Larol", email: "larolj@gmail.com", mobile: "9856321254", countryInterested: "US", programmeInterested: "English", assignedTo: "Martin Gill", status: "Processing " },
-        { sno: 6, name: "Abhishek Sharma", email: "abc@gmail.com", mobile: "9856321254", countryInterested: "India", programmeInterested: "MBBS", assignedTo: "Gabbar Singh", status: "Completed" },
-        { sno: 7, name: "Abhishek Sharma", email: "abc@gmail.com", mobile: "9856321254", countryInterested: "India", programmeInterested: "MBBS", assignedTo: "Gabbar Singh", status: "Completed" },
-        { sno: 8, name: "Abhishek Sharma", email: "abc@gmail.com", mobile: "9856321254", countryInterested: "India", programmeInterested: "MBBS", assignedTo: "Gabbar Singh", status: "Completed" },
-        { sno: 9, name: "Abhishek Sharma", email: "abc@gmail.com", mobile: "9856321254", countryInterested: "India", programmeInterested: "MBBS", assignedTo: "Gabbar Singh", status: "Completed" },
-        { sno: 10, name: "Abhishek Sharma", email: "abc@gmail.com", mobile: "9856321254", countryInterested: "India", programmeInterested: "MBBS", assignedTo: "Gabbar Singh", status: "Completed" },
-        { sno: 11, name: "Abhishek Sharma", email: "abc@gmail.com", mobile: "9856321254", countryInterested: "India", programmeInterested: "MBBS", assignedTo: "Gabbar Singh", status: "Completed" },
+        { sno: 1, name: "Abhishek Sharma", email: "abc@gmail.com", mobile: "9856321254", countryInterested: "India",branch:"branch1", programmeInterested: "MBBS", assignedTo: "Gabbar Singh", status: "Completed" },
+        { sno: 2, name: "Albert Moody", email: "albert@gmail.com", mobile: "9123456789", countryInterested: "Australia",branch:"branch1", programmeInterested: "Economics", assignedTo: "Martin Gill", status: "Completed" },
+        { sno: 3, name: "William Din", email: "williamd@gmail.com", mobile: "9856321254", countryInterested: "UK",branch:"branch1", programmeInterested: "Data Science", assignedTo: "John Doe", status: "Processing" },
+        { sno: 4, name: "Ashley Lynch", email: "ashley@gmail.com", mobile: "9856321254", countryInterested: "New Zealand",branch:"branch1", programmeInterested: "Medical", assignedTo: "John Doe", status: "Rejected" },
+        { sno: 5, name: "Jeffery Larol", email: "larolj@gmail.com", mobile: "9856321254", countryInterested: "US",branch:"branch1", programmeInterested: "English", assignedTo: "Martin Gill", status: "Processing " },
+        { sno: 6, name: "Abhishek Sharma", email: "abc@gmail.com", mobile: "9856321254", countryInterested: "India",branch:"branch1", programmeInterested: "MBBS", assignedTo: "Gabbar Singh", status: "Completed" },
+        { sno: 7, name: "Abhishek Sharma", email: "abc@gmail.com", mobile: "9856321254", countryInterested: "India",branch:"branch1", programmeInterested: "MBBS", assignedTo: "Gabbar Singh", status: "Completed" },
+        { sno: 8, name: "Abhishek Sharma", email: "abc@gmail.com", mobile: "9856321254", countryInterested: "India",branch:"branch1", programmeInterested: "MBBS", assignedTo: "Gabbar Singh", status: "Completed" },
+        { sno: 9, name: "Abhishek Sharma", email: "abc@gmail.com", mobile: "9856321254", countryInterested: "India",branch:"branch1", programmeInterested: "MBBS", assignedTo: "Gabbar Singh", status: "Completed" },
+        { sno: 10, name: "Abhishek Sharma", email: "abc@gmail.com", mobile: "9856321254", countryInterested: "India",branch:"branch1", programmeInterested: "MBBS", assignedTo: "Gabbar Singh", status: "Completed" },
+        { sno: 11, name: "Abhishek Sharma", email: "abc@gmail.com", mobile: "9856321254", countryInterested: "India",branch:"branch1", programmeInterested: "MBBS", assignedTo: "Gabbar Singh", status: "Completed" },
     ]
     const getResponse = async () =>{
         try {
@@ -91,22 +101,23 @@ function List() {
     return (
         <Skeleton>
             <div className='p-10'>
-                <TopComponent title="Enquiry" component="Enquiry" current ="List"/>
+                <TopComponent title="Students List" component="Enquiry" current ="Students List"/>
                 <div className='w-auto bg-white mt-10 rounded-lg shadow-2l pb-2'>
-                    <div className='p-5 border-b border-#6c6c6c-500  m-b-2 flex justify-between'>
-                        <div className='py-3 px-3'><h1 style={{ fontWeight: 700 }}>Enquiries</h1></div>
-                        <div className='px-8 py-3'>
-                            <CircularButton title={'New Enquiry'} bgColor={'btn-bg-green'} bgColorHover={''} />
+                    <div className='p-5 border-b border-#6c6c6c-500 w-4/5 m-b-2 flex justify-between'>
+                        <div className='py-3 px-3'><h1 style={{ fontWeight: 700 }}>Students List</h1></div>
+                        <div className='pr-15 py-3'>
+                            <CircularButton title={'Add New Student'} bgColor={'bg-[#448268]'} bgColorHover={''} onClick ={()=>setOpenModal({action: true})} />
                         </div>
                     </div>
 
                     <Table
                         columns={columns}
                         data={data}
-
+                        
                     />
                 </div>
             </div>
+            {openModal.action && <AddEnquiryModal open={openModal} onClose={handleOnClose} title='Add Enquiry'/>}
         </Skeleton>
     )
 }

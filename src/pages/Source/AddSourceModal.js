@@ -9,6 +9,7 @@ function AddSource({open, onClose, title}) {
     const [sourceType, setSourceType] = useState('')
     const [date, setDate] = useState('')
     const [addedBy, setAddedBy] = useState('')
+    const [type, setType] = useState('')
     const [description, setDescription] = useState('')
     const onSubmit = (e) => {
         e.preventDefault();
@@ -23,6 +24,12 @@ function AddSource({open, onClose, title}) {
         setSourceType('')
         setSources('')
     }
+   
+        const data = [
+            { Source: "Online", id: 1 },
+            { Source: "Offline", id: 2 }
+        ]
+    
   return (
     <Modal open={open} onClose= {onClose} title ={title} >
           <div className='py-10 px-5'>
@@ -32,7 +39,7 @@ function AddSource({open, onClose, title}) {
                       <div className='grid grid-cols-2 gap-5'>
                           <Input
                               id="sources"
-                              label={"sources"}
+                              label={"Sources"}
                               required
                               type={"text"}
                               placeholder="Sources"
@@ -40,12 +47,23 @@ function AddSource({open, onClose, title}) {
                               onChange={(v) => setSources(v)}
 
                           />
-                          <Select
-                              label={"Source Type"}
-                              required
-                              value={sourceType}
-                              onChange={(v) => setSourceType(v)}
-                          />
+                          {/* <label className="block text-gray-700 text-sm font-bold mb-2">Source Type<span className="text-red-500">&nbsp;*</span>
+                            <select className=" h-9 shadow-md outline-0 border  bg-white border-gray-300 mt-7"  onChange={(v) => setType(v)}>
+                                <option>Select Source Type</option>
+                                <option>Online</option>
+                                <option>Offline</option>
+                            </select>
+                          </label> */}
+
+                        <label className="block text-gray-700 text-sm font-bold mb-2"> Source Type<span className="text-red-500">&nbsp;*</span>
+                                                                
+                                        <select className="w-full h-10 border-1  shadow-md outline-0 rounded-lg bg-white text-gray-500 border-gray-300" onChange={(v) => setType(v)}>
+                                            <option >Please Select</option>
+                                            <option>Online</option>
+                                            <option>Offline</option>
+                                        </select>     
+                      
+                                        </label> 
                       </div>
                   </div>
                   <div className='mb-5'>

@@ -1,5 +1,6 @@
 import Skeleton from "../layouts/Skeleton";
 import SearchBar from "../components/SearchBar";
+import MultiSelect from "../components/MultiSelect";
 
 export default function Blank(props) {
     return(
@@ -8,6 +9,7 @@ export default function Blank(props) {
                 {/* Remove class [ border-dashed border-2 border-gray-300 ] to remove dotted border */}
                 <div className="w-full h-full rounded border-dashed border-2 border-gray-300">{/* Place your content here */}</div>
                 <SearchBar></SearchBar>
+                <MultiSelect></MultiSelect>
             </div>
         </Skeleton>
     )

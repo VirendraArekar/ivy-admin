@@ -27,7 +27,7 @@ function CreateCountryForm() {
     return (
         <Skeleton>
             <div className='p-10'>
-                <TopComponent title="Setting" component="Country" current="Create Country" icon=<FiSettings color='white' /> />
+                <TopComponent title="Setting" component="Country" current="Create Country" icon={FiSettings} color='white' />
                 <div className='w-auto bg-white mt-10 rounded-lg shadow-2l pb-2'>
                     <div className='p-5 border-b border-#6c6c6c-500  m-b-2'>
                         <h1 style={{ fontWeight: 700 }}>Add Country</h1>

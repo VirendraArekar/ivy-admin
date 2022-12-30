@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import CircularButton from '../../components/CircularButton'
 import Input from '../../components/Input'
+import Modal from '../../components/Modal'
 import Select from '../../components/Select'
 import TopComponent from '../../components/TopComponent'
-import Skeleton from '../../layouts/Skeleton'
 
-function CreateEnquiryForm() {
+
+function AddEnquiryModal({ title, open, onClose }) {
     const [firstName, setFirstName] = useState('')
     const [lastName, setLastName] = useState('')
     const [email, setEmail] = useState('')
@@ -33,19 +34,18 @@ function CreateEnquiryForm() {
         setCountry('')
         setLead('')
     }
-    useEffect(()=>{
-        
-    },[])
+   const Countryoptions=[
+
+   ]
     return (
-        <Skeleton>
+        <Modal title={title}
+        open={open} onClose={onClose}>
             <div className='p-10'>
-                <TopComponent title="Enquiry" component="Enquiry" current="Add Enquiry" />
-                <div className='w-auto bg-white mt-10 rounded-lg shadow-2l pb-2'>
-                    <div className='p-5 border-b border-#6c6c6c-500  m-b-2'>
-                        <h1 style={{ fontWeight: 700 }}>Add Enquiry</h1>
-                    </div>
-                    <div className='py-10 px-5'>
-                        <div className='py-3 px-3 bg-neutral-200 w-80 rounded-md font-semibold mb-6' >Enquiry Information</div>
+              
+                <div className='w-auto bg-white mt-5 rounded-lg shadow-2l pb-2'>
+                    
+                    <div className='py-5 px-5'>
+                        <div className='py-3 px-3 bg-[#F7F8FA] w-80 rounded-md mb-6' >Enquiry Information</div>
                         <form action='#' onSubmit={(event) => onSubmit(event)}>
                             <div className='mb-5'>
                                 <h1 className='block text-gray-700 text-sm font-bold mb-2'>Name<span className="text-red-500">&nbsp;*</span></h1>
@@ -92,19 +92,28 @@ function CreateEnquiryForm() {
                                 </div>
                             </div>
                             <div className='mb-10'>
-                                <div className='grid grid-cols-2 gap-5'>
+                                <div className='grid grid-cols-2 '>
                                     <Select
                                         label={"Country Interested In"}
                                         required
+                                        options={Countryoptions}
                                         value={country}
                                         onChange={(v) => setCountry(v)}
                                     />
-                                    <Select
-                                        label={"Lead Source"}
-                                        required
-                                        value={lead}
-                                        onChange={(v) => setLead(v)}
-                                    />
+                                     <label className="block text-gray-700 text-sm font-bold ml-3">Role Type<span className="text-red-500">&nbsp;*</span>
+                                        
+                                    <select className="w-full h-10 border-1 shadow-md outline-0 rounded-lg bg-white border-gray-300"   onChange={(v) => setLead(v)}>
+                                        <option>Select Lead</option>
+                                        <option>Online</option>
+                                        <option>Offline</option>
+                                    </select> 
+                                    </label>  
+                                  
+                                </div>
+                            </div>
+                            <div className='mb-10'>
+                                <div className='grid grid-cols-2 '>
+                                    
                                 </div>
                             </div>
                             <div className='text-center space-x-5 mt-10'>
@@ -121,8 +130,8 @@ function CreateEnquiryForm() {
                     </div>
                 </div>
             </div>
-        </Skeleton>
+        </Modal>
     )
 }
 
-export default CreateEnquiryForm
+export default AddEnquiryModal

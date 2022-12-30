@@ -1,19 +1,36 @@
-import React from 'react'
-import { Fragment } from 'react'
-import DoubleBarGraph from './DoubleBarGraph'
 import { Menu, Transition } from '@headlessui/react'
 import { ChevronDownIcon } from '@heroicons/react/20/solid'
-import SingleBarGraph from './SingleBarGraph'
-import OptionComponent from './OptionComponent'
+import { Fragment } from 'react' 
 
-function classNames(...classes) {
-    return classes.filter(Boolean).join(' ')
-}
+import {
+        Chart as ChartJS,
+        CategoryScale,
+        LinearScale,
+        BarElement,
+        Title,
+        Tooltip,
+        Legend,
+      } from 'chart.js';
+import { Bar } from 'react-chartjs-2';
+      ChartJS.register(
+        CategoryScale,
+        LinearScale,
+        BarElement,
+        Title,
+        Tooltip,
+        Legend
+      );
+      function classNames(...classes) {
+        return classes.filter(Boolean).join(' ')
+    }
+    const Stackbar = (props) => {
+  
+       const {options,data,title,options_u}=props
+      
+        return (
+            
 
-export default function ChartComponent(props) {
-    const { title, options,bar, dataset, dataset1, dataset2, labels} = props
-    return (
-        <div className='w-auto bg-white mt-10 rounded-lg shadow-2l pb-2'>
+            <div className='w-auto bg-white mt-10 rounded-lg shadow-2l pb-2'>
             <div className='flex p-5 border-b border-#6c6c6c-500  m-b-2'>
                 <h1 style={{ fontWeight: 700 }}>{title}</h1>
                 <p className="ml-5" style={{ fontSize: "14px", color: "#6c6c6c"  }}>Per Month</p>
@@ -38,7 +55,7 @@ export default function ChartComponent(props) {
                     >
                         <Menu.Items className="absolute right-0 z-10 mt-2 w-44 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
                             <div className="py-1">
-                                {options.map((d, i) => <Menu.Item>
+                                {options_u.map((d, i) => <Menu.Item>
                                     {({ active }) => (
                                         <a
                                             key={i}
@@ -57,14 +74,9 @@ export default function ChartComponent(props) {
                     </Transition>
                 </Menu>
             </div>
-            {bar === 'double' ? <DoubleBarGraph
-                datasetOne={dataset1}
-                datasetTwo={dataset2}
-                labels={labels}
-            /> : <SingleBarGraph
-                dataset={dataset}
-                labels={labels}
-            />}
+         <Bar options={options} data={data} />
         </div>
-    )
-}
+        );
+    }
+      
+    export default Stackbar ;

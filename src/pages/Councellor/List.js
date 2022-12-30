@@ -7,9 +7,15 @@ import Table from '../../components/Table'
 import { MdDelete, MdEdit } from 'react-icons/md'
 import EditCouncellor from './Edit'
 import { FiSettings } from 'react-icons/fi'
+import CreateForm from './Create'
+
 
 
 function CouncellorList() {
+    const [openModal, setOpenModal] = useState({ action: false })
+    const handleOnCloseq = () => {
+        setOpenModal({ action: false })  
+    }
     const navigate =useNavigate()
     const [openEdit ,setOpenEdit ] = useState({
         action: false,
@@ -85,16 +91,16 @@ function CouncellorList() {
   return (
       <Skeleton>
           <div className='p-10'>
-              <TopComponent title="Setting" component="Source" current="List" icon=<FiSettings color='white' /> />
+              <TopComponent title="Councellor" component="Source" current="List" icon={FiSettings }color='white' />
               <div className='w-auto bg-white mt-10 rounded-lg shadow-2l pb-2'>
                   <div className='p-5 border-b border-#6c6c6c-500  m-b-2 flex justify-between'>
                       <div className='py-3 px-3'><h1 style={{ fontWeight: 700 }}>Councellor</h1></div>
                       <div className='px-8 py-3'>
-                          <CircularButton title={'New Councellor'} bgColor={'btn-bg-green'} bgColorHover={''} onClick ={() => navigate("/councellor/create")} />
+                          <CircularButton title={'New Councellor'} bgColor={'btn-bg-green'} bgColorHover={''} onClick ={()=>setOpenModal({action: true})} />
                       </div>
                   </div>
 
-                  <Table
+                  <Table  
                       columns={columns}
                       data={data}
 
@@ -102,6 +108,7 @@ function CouncellorList() {
               </div>
           </div>
           {openEdit.action && <EditCouncellor open={openEdit} onClose ={handleOnClose}/>}
+          {openModal.action && <CreateForm open={openModal} onClose={handleOnCloseq} title='Create Councellor' />}
       </Skeleton>
   )
 }

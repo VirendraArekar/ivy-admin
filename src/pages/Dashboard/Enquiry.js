@@ -16,7 +16,7 @@ export default function Enquiry(props) {
         { Title: "Walk-in", Icon: "facebook", Count: 189, Progress: 100 },
         { Title: "Referral", Icon: "instagram", Count: 154, Progress: 100 },
         { Title: "Direct", Icon: "linkedin", Count: 78, Progress: 100 },
-        { Title: "Lorem Ipsum", Icon: "google", Count: 254, Progress: 100 },
+        { Title: "hoarding and fare's data", Icon: "google", Count: 254, Progress: 100 },
     ]
     return (
         <Skeleton>

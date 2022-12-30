@@ -4,9 +4,9 @@ import CircularButton from '../../components/CircularButton'
 import Input from '../../components/Input'
 import Select from '../../components/Select'
 import TopComponent from '../../components/TopComponent'
-import Skeleton from '../../layouts/Skeleton'
+import Modal from '../../components/Modal';
 
-function CreateCouncellorForm() {
+function CreateForm({open , onClose , title}) {
     const [firstName, setFirstName] = useState('')
     const [lastName, setLastName] = useState('')
     const [destination, setDestination] = useState('')
@@ -35,13 +35,11 @@ function CreateCouncellorForm() {
 
     }, [])
     return (
-        <Skeleton>
+        <Modal open={open} onClose={onClose} title={title} >
             <div className='p-10'>
-                <TopComponent title="Setting" component="Councellor" current="Create Councellor" icon=<FiSettings color='white' /> />
-                <div className='w-auto bg-white mt-10 rounded-lg shadow-2l pb-2'>
-                    <div className='p-5 border-b border-#6c6c6c-500  m-b-2'>
-                        <h1 style={{ fontWeight: 700 }}>Add Councellor</h1>
-                    </div>
+               
+                <div className='w-auto bg-white mt-5 rounded-lg shadow-2l pb-2'>
+                   
                     <div className='py-10 px-5'>
                         <div className='py-3 px-3 bg-neutral-200 w-80 rounded-md font-semibold mb-6' >Councellor Information</div>
                         <form action='#' onSubmit={(event) => onSubmit(event)}>
@@ -110,8 +108,8 @@ function CreateCouncellorForm() {
                     </div>
                 </div>
             </div>
-        </Skeleton>
+            </Modal> 
     )
 }
 
-export default CreateCouncellorForm
+export default CreateForm

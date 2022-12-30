@@ -8,7 +8,7 @@ function Select({ label, required, placeholder, id,value ,onChange}) {
             </label>}
             <div className="relative">
                 <select 
-                    className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" 
+                    className=" bg-[#F7F8FA] xshadow appearance-none border rounded w-full py-2 px-3 text-black-500 leading-tight focus:outline-none focus:shadow-outline" 
                     id={id}
                     placeholder="hello"
                     value={value}

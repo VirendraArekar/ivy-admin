@@ -4,6 +4,7 @@ import Input from '../../components/Input'
 import Select from '../../components/Select'
 import TopComponent from '../../components/TopComponent'
 import Skeleton from '../../layouts/Skeleton'
+import { FiUsers } from 'react-icons/fi'
 
 function AssignEnquiryForm() {
     const [firstName, setFirstName] = useState('')
@@ -45,13 +46,13 @@ function AssignEnquiryForm() {
     return (
         <Skeleton>
             <div className='p-10'>
-                <TopComponent title="Enquiry" component="Enquiry" current="Assign Enquiry" />
+                <TopComponent title="Enquiry" component="Enquiry" current="Assign Enquiry" Icon={FiUsers} />
                 <div className='w-auto bg-white mt-10 rounded-lg shadow-2l pb-2'>
                     <div className='p-5 border-b border-#6c6c6c-500  m-b-2'>
                         <h1 style={{ fontWeight: 700 }}>Enquiry Assignment</h1>
                     </div>
                     <div className='py-10 px-5'>
-                        <div className='py-3 px-3 bg-neutral-200 w-80 rounded-md font-semibold mb-6' >Enquiry Information</div>
+                        <div className='py-3 px-3 bg-neutral-200 w-80 rounded-md mb-6' >Enquiry Information</div>
                         <form action='#' onSubmit={(event) => onSubmit(event)}>
                             <div className='mb-5'>
                                 <h1 className='block text-gray-700 text-sm font-bold mb-2'>Name<span className="text-red-500">&nbsp;*</span></h1>
@@ -106,12 +107,11 @@ function AssignEnquiryForm() {
                                         value={designation}
                                         onChange={(v) => setDesignation(v)}
                                     />
-                                    <Select
-                                        label={"Lead Source"}
-                                        required
-                                        value={lead}
-                                        onChange={(v) => setLead(v)}
-                                    />
+                                   <select className="w-full h-10 border-1 mt-6 shadow-md outline-0 rounded-lg bg-white border-gray-300"   onChange={(v) => setLead(v)}>
+                                        <option>Select Lead</option>
+                                        <option>option1</option>
+                                        <option>option2</option>
+                                    </select>  
                                 </div>
                             </div>
                             <div className='mb-5'>
@@ -126,11 +126,12 @@ function AssignEnquiryForm() {
                             </div>
                             <div className='mb-5'>
                                 <div className='w-4/5'>
-                                    <Select
-                                        label={"Assigned To"}
-                                        value={assignTo}
-                                        onChange={(v) => setAssignTo(v)}
-                                    />
+                                    
+                                    <select className="w-full h-10 border-1 mt-6 shadow-md outline-0 rounded-lg bg-white border-gray-300"   onChange={(v) => setAssignTo(v)}>
+                                        <option>Select Lead</option>
+                                        <option>option1</option>
+                                        <option>option2</option>
+                                    </select> 
                                 </div>
                             </div>
 

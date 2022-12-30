@@ -2,6 +2,7 @@ import BorderButton from "../components/BorderButton";
 import Button from "../components/Button";
 import CircularButton from "../components/CircularButton";
 import Skeleton from "../layouts/Skeleton";
+import OptionComponent from "../components/OptionComponent";
 
 
 export default function ButtonPage(props){
@@ -52,7 +53,7 @@ export default function ButtonPage(props){
 
                       <BorderButton title={'Branch'} bgColor={'bg-btn-green'} bgColorHover={''} color={'text-gray-800'}/>
 
-                      
+                      <OptionComponent  allOptions={['Branch Waise', 'Last 3 Months', 'Last 9 Months', 'Last Weak', 'This Year', 'This Month', 'Today']}></OptionComponent>
                       
                    </div>
                 </div>

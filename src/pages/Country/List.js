@@ -12,9 +12,9 @@ function CountryList() {
     const navigate = useNavigate()
     const [openModal, setOpenModal] = useState({ action: false })
     const handleOnClose = () => {
-        setOpenModal({ action: false })
+        setOpenModal({ action: false })  
     }
-    const columns = [
+    const columns = [ 
         {
             name: "S.no.",
             selector: (row) => row.sno,
@@ -65,7 +65,7 @@ function CountryList() {
   return (
       <Skeleton>
           <div className='p-10'>
-              <TopComponent title="Setting" component="Country" current="List" icon=<FiSettings color='white' /> />
+              <TopComponent title="Setting" component="Country" current="List" icon={FiSettings } color='white' />
               <div className='w-auto bg-white mt-10 rounded-lg shadow-2l pb-2'>
                   <div className='p-5 border-b border-#6c6c6c-500  m-b-2 flex justify-between'>
                       <div className='py-3 px-3'><h1 style={{ fontWeight: 700 }}>Country</h1></div>
